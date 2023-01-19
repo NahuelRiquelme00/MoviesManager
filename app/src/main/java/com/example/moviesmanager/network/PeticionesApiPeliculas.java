@@ -1,0 +1,22 @@
+package com.example.moviesmanager.network;
+
+import com.example.moviesmanager.models.Pelicula;
+import com.google.gson.JsonObject;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
+
+public interface PeticionesApiPeliculas {
+    //Ejemplo de URL
+    //https://api.themoviedb.org/3/search/movie?api_key=db4d382cec1aeb8010fb784d2ef9fd30&query=Dune
+
+
+    //Buscar peliculas por nombre
+    @GET("search/movie") //https://api.themoviedb.org/3/search/movie?
+    Call<JsonObject> getPeliculas(@Query("api_key") String key, @Query("query") String title);
+
+}
