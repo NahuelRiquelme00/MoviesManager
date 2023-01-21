@@ -13,4 +13,13 @@
     <string name="menu_ya_vistas">Ya vistas</string>
     <string name="menu_configuracion">Configuración</string>
     <string name="menu_slideshow">Slideshow</string>
+
+    <string-array name="orden">
+        <item>Ascendente (A-Z)</item>
+        <item>Descendente (Z-A)</item>
+        <item>Menor duracion</item>
+        <item>Mayor duracion</item>
+        <item>Mas reciente</item>
+        <item>Mas antigua</item>
+    </string-array>
 </resources>

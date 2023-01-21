@@ -24,8 +24,6 @@ public class RecomendacionesFragment extends Fragment {
         binding = FragmentRecomendacionesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textRecomendaciones;
-        recomendacionesViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
