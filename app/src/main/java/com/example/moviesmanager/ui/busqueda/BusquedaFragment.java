@@ -57,7 +57,6 @@ public class BusquedaFragment extends Fragment {
                             public void run() {
                                 //Mostrar el resultado de la busqueda
                                 // El resultado son peliculas
-
                                 PeliculaAdapter peliculaAdapter = new PeliculaAdapter(peliculas, getContext());
                                 RecyclerView recyclerView = binding.peliculasRecyclerView;
                                 recyclerView.setHasFixedSize(true);

@@ -26,6 +26,7 @@ public class FavoritasFragment extends Fragment {
 
         final TextView textView = binding.textFavoritas;
         favoritasViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
         return root;
     }
 

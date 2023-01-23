@@ -12,5 +12,6 @@
     <string name="menu_ver_mas_tarde">Ver más tarde</string>
     <string name="menu_ya_vistas">Ya vistas</string>
     <string name="menu_configuracion">Configuración</string>
+    <string name="menu_detalle">Detalle</string>
     <string name="menu_slideshow">Slideshow</string>
 </resources>
