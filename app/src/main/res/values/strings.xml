@@ -14,4 +14,23 @@
     <string name="menu_configuracion">Configuración</string>
     <string name="menu_detalle">Detalle</string>
     <string name="menu_slideshow">Slideshow</string>
+
+    <string-array name="orden">
+        <item>Ascendente (A-Z)</item>
+        <item>Descendente (Z-A)</item>
+        <item>Menor duracion</item>
+        <item>Mayor duracion</item>
+        <item>Mas reciente</item>
+        <item>Mas antigua</item>
+    </string-array>
+
+    <string name="tv_InicioFavoritas">Favoritas</string>
+    <string name="tv_InicioVerMasTarde">Ver m\u00e1s tarde</string>
+    <string name="bt_InicioYaVistas">Ya vistas</string>
+    <string name="bt_InicioRecoms">Recomendaciones</string>
+    <string name="tv_RecomsDirector">Director: </string>
+    <string name="tv_RecomsGenero">G\u00e9nero: </string>
+    <string name="tv_RecomsAnioEstreno">A\u00f1o de Estreno: </string>
+    <string name="bt_RecomsBuscar">Buscar</string>
+    <string name="tv_Orden">Orden: </string>
 </resources>
