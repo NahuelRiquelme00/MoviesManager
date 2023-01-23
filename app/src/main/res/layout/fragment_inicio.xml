@@ -11,12 +11,12 @@
     <TextView
         android:id="@+id/textViewInicioFavoritas"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_height="@dimen/altura_general_textos_spinner"
         android:gravity="left|center"
-        android:textSize="20dp"
+        android:textSize="@dimen/titulos_size"
         android:textStyle="bold"
         android:textColor="@color/white"
-        android:text="Favoritas" />
+        android:text="@string/tv_InicioFavoritas" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewInicioFavoritas"
@@ -27,12 +27,12 @@
     <TextView
         android:id="@+id/textViewInicioVerMasTarde"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="@dimen/altura_general_textos_spinner"
         android:gravity="left|center"
-        android:textSize="20dp"
+        android:textSize="@dimen/titulos_size"
         android:textStyle="bold"
         android:textColor="@color/white"
-        android:text="Ver mas tarde" />
+        android:text="@string/tv_InicioVerMasTarde" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewInicioVerMasTarde"
@@ -42,23 +42,23 @@
 
     <Button
         android:id="@+id/buttonInicioYaVistas"
-        android:layout_width="200dp"
+        android:layout_width="@dimen/ancho_boton"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/separacion_botones"
         android:background="@drawable/button_inicio"
         android:textColor="@color/white"
         android:drawableLeft="@drawable/ic_baseline_check_circle_outline_24"
-        android:text="Ya vistas" />
+        android:text="@string/bt_InicioYaVistas" />
 
     <Button
         android:id="@+id/buttonInicioRecomendaciones"
-        android:layout_width="200dp"
+        android:layout_width="@dimen/ancho_boton"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@drawable/button_inicio"
         android:textColor="@color/white"
         android:drawableLeft="@drawable/ic_baseline_recommend_24"
-        android:text="Recomendaciones" />
+        android:text="@string/bt_InicioRecoms" />
 
 </LinearLayout>
