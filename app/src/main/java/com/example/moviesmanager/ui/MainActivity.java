@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
-    private NavController navController;
+    public NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

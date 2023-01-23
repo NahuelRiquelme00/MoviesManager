@@ -34,7 +34,7 @@ public class FavoritasFragment extends Fragment {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.orden, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerFavs.setAdapter(adapter);
-
+        
         return root;
     }
 
