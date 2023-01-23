@@ -1,25 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black"
     tools:context=".ui.inicio.InicioFragment">
 
     <TextView
-        android:id="@+id/text_inicio"
+        android:id="@+id/textViewInicioFavoritas"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/altura_general_textos_spinner"
+        android:gravity="left|center"
+        android:textSize="@dimen/titulos_size"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="@string/tv_InicioFavoritas" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewInicioFavoritas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Fragmento inicio"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:background="@color/color_principal"/>
+
+    <TextView
+        android:id="@+id/textViewInicioVerMasTarde"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/altura_general_textos_spinner"
+        android:gravity="left|center"
+        android:textSize="@dimen/titulos_size"
+        android:textStyle="bold"
         android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="@string/tv_InicioVerMasTarde" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewInicioVerMasTarde"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_principal"/>
+
+    <Button
+        android:id="@+id/buttonInicioYaVistas"
+        android:layout_width="@dimen/ancho_boton"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/separacion_botones"
+        android:background="@drawable/button_inicio"
+        android:textColor="@color/white"
+        android:drawableLeft="@drawable/ic_baseline_check_circle_outline_24"
+        android:text="@string/bt_InicioYaVistas" />
+
+    <Button
+        android:id="@+id/buttonInicioRecomendaciones"
+        android:layout_width="@dimen/ancho_boton"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/button_inicio"
+        android:textColor="@color/white"
+        android:drawableLeft="@drawable/ic_baseline_recommend_24"
+        android:text="@string/bt_InicioRecoms" />
+
+</LinearLayout>
