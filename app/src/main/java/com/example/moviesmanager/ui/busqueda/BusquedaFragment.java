@@ -50,21 +50,26 @@ public class BusquedaFragment extends Fragment {
                     ConsultarTmdbApi rg = new ConsultarTmdbApi();
                     try {
                         List<Pelicula> peliculas = rg.respuesta(edt_titulo.getText().toString());
-                        Toast.makeText(getContext(), "Procesando ...", Toast.LENGTH_SHORT).show();
-                        final Handler handler = new Handler();
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                //Mostrar el resultado de la busqueda
-                                // El resultado son peliculas
-                                PeliculaAdapter peliculaAdapter = new PeliculaAdapter(peliculas, getContext());
-                                RecyclerView recyclerView = binding.peliculasRecyclerView;
-                                recyclerView.setHasFixedSize(true);
-                                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                                recyclerView.setAdapter(peliculaAdapter);
+                        if(peliculas.isEmpty()){
+                            Toast.makeText(getContext(), "No se encontraron resultados", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(getContext(), "Procesando ...", Toast.LENGTH_SHORT).show();
+                            final Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    //Mostrar el resultado de la busqueda
+                                    // El resultado son peliculas
+                                    PeliculaAdapter peliculaAdapter = new PeliculaAdapter(peliculas, getContext());
+                                    RecyclerView recyclerView = binding.peliculasRecyclerView;
+                                    recyclerView.setHasFixedSize(true);
+                                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                                    recyclerView.setAdapter(peliculaAdapter);
 
-                            }
-                        }, 5000);
+                                }
+                            }, 1000);
+                        }
+
                     } catch (Exception ex) {
                         Toast.makeText(getContext(), "Error: " + ex, Toast.LENGTH_SHORT).show();
                     }
@@ -73,9 +78,6 @@ public class BusquedaFragment extends Fragment {
                 }
             }
         });
-
-        //final TextView textView = binding.textBusqueda;
-        //busquedaViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

@@ -27,10 +27,11 @@
         <Spinner
             android:id="@+id/spinnerFavsOrden"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/altura_general_textos_spinner"
+            android:layout_height="48dp"
             android:layout_gravity="center"
+            android:background="@drawable/spinner"
             android:popupBackground="@color/white"
-            android:background="@drawable/spinner" />
+            tools:ignore="SpeakableTextPresentCheck" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

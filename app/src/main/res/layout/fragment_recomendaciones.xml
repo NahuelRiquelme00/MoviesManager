@@ -28,10 +28,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textColor="@color/white"
             android:backgroundTint="@color/white"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColor="@color/white"
+            tools:text="Andy" />
     </LinearLayout>
 
     <LinearLayout
@@ -52,10 +54,11 @@
         <Spinner
             android:id="@+id/spinnerRecomsGenero"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/altura_general_textos_spinner"
+            android:layout_height="48dp"
             android:layout_gravity="center"
-            android:popupBackground="@color/white"
-            android:background="@drawable/spinner"/>
+            android:background="@drawable/spinner"
+            android:contentDescription="Genero"
+            android:popupBackground="@color/white" />
     </LinearLayout>
 
     <LinearLayout
@@ -78,11 +81,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textColor="@color/white"
             android:backgroundTint="@color/white"
             android:ems="10"
+            android:inputType="number"
             android:maxLength="4"
-            android:inputType="number" />
+            android:minHeight="48dp"
+            android:textColor="@color/white"
+            tools:text="1997" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
