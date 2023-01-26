@@ -144,7 +144,7 @@ public class FavoritasFragment extends Fragment {
                     recyclerViewFavoritas.setLayoutManager(layoutManagerFavoritas);
                     recyclerViewFavoritas.setAdapter(peliculaAdapterFavoritas);
                 }
-            },1000);
+            },1500);
         }
     }
 }
