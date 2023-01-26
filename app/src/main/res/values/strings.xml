@@ -25,6 +25,28 @@
         <item>Mas antigua</item>
     </string-array>
 
+    <string-array name="generos">
+        <item>""</item>
+        <item>Acción</item>
+        <item>Aventura</item>
+        <item>Animación</item>
+        <item>Comedia</item>
+        <item>Crimen</item>
+        <item>Documental</item>
+        <item>Drama</item>
+        <item>Familia</item>
+        <item>Fantasía</item>
+        <item>Historia</item>
+        <item>Terror</item>
+        <item>Música</item>
+        <item>Misterio</item>
+        <item>Romance</item>
+        <item>Ciencia ficción</item>
+        <item>Suspense</item>
+        <item>Bélica</item>
+        <item>Western</item>
+    </string-array>
+
     <string name="tv_InicioFavoritas">Favoritas</string>
     <string name="tv_InicioVerMasTarde">Ver m\u00e1s tarde</string>
     <string name="bt_InicioYaVistas">Ya vistas</string>

@@ -144,7 +144,7 @@ public class VerMasTardeFragment extends Fragment {
                     recyclerViewVerMasTarde.setLayoutManager(layoutManagerVerMasTarde);
                     recyclerViewVerMasTarde.setAdapter(peliculaAdapterVerMasTarde);
                 }
-            }, 1000);
+            }, 1500);
         }
     }
 }

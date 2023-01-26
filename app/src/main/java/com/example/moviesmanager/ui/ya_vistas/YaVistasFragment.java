@@ -144,7 +144,7 @@ public class YaVistasFragment extends Fragment {
                     recyclerViewYaVistas.setLayoutManager(layoutManagerYaVistas);
                     recyclerViewYaVistas.setAdapter(peliculaAdapterYaVistas);
                 }
-            }, 1000);
+            }, 1500);
         }
     }
 }
