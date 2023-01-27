@@ -11,4 +11,7 @@
     <dimen name="separacion_varios_layouts">60dp</dimen>
     <dimen name="separacion_un_layout">70dp</dimen>
     <dimen name="separacion_botones">10dp</dimen>
+    <dimen name="bt_Radio">50dp</dimen>
+    <dimen name="bt_AnchoBorde">5dp</dimen>
+    <dimen name="tamFotoPerfil">200dp</dimen>
 </resources>

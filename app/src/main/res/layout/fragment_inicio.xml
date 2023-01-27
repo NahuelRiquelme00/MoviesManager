@@ -59,6 +59,7 @@
         android:background="@drawable/button_inicio"
         android:textColor="@color/white"
         android:drawableLeft="@drawable/ic_baseline_recommend_24"
+        android:drawableTint="@color/white"
         android:text="@string/bt_InicioRecoms" />
 
 </LinearLayout>

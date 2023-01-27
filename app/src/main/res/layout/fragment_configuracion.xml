@@ -1,25 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.configuracion.ConfiguracionFragment">
+    android:orientation="vertical"
+    android:background="@color/black"
+    tools:context=".ui.configuracion.ConfiguracionFragment" >
 
     <TextView
-        android:id="@+id/text_configuracion"
+        android:id="@+id/textViewConfigTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Fragmento configuracion"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:gravity="center"
+        android:textSize="@dimen/titulos_size"
         android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textStyle="bold"
+        android:text="@string/tv_ConfigCambio" />
+
+    <TextView
+        android:id="@+id/textViewConfigIntro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:text="@string/tv_ConfigIntro" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/white"
+        android:orientation="vertical"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageViewConfigFotoPerfil"
+            android:layout_height="@dimen/tamFotoPerfil"
+            android:layout_width="@dimen/tamFotoPerfil"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/ic_launcher_foreground"
+            app:civ_border_color="@color/white"
+            app:civ_border_width="5dp">
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+        <TextView
+            android:id="@+id/textViewConfigUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/altura_general_textos_spinner"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="@string/ad_ConfigUsuario" />
+
+        <TextView
+            android:id="@+id/textViewConfigCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/altura_general_textos_spinner"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="@string/ad_ConfigCorreo" />
+
+    </LinearLayout>
+
+</LinearLayout>
