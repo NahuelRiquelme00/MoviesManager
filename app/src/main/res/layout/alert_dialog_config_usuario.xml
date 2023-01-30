@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textViewADUsuarioIngresar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/altura_general_textos_spinner"
+        android:gravity="center"
+        android:textSize="@dimen/titulos_size"
+        android:textStyle="bold"
+        android:textColor="@color/color_principal"
+        android:text="@string/ad_ConfigUsuarioTitulo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/color_principal"
+        android:orientation="vertical"></LinearLayout>
+
+    <EditText
+        android:id="@+id/editTextUsuarioNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_principal"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:text="@string/ad_ConfigUsuario"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonADUsuarioCancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:background="@drawable/button_config"
+            android:text="@string/ad_ConfigCancelar" />
+
+        <Button
+            android:id="@+id/buttonADUsuarioAceptar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:background="@drawable/button_config"
+            android:text="@string/ad_ConfigAceptar" />
+    </LinearLayout>
+</LinearLayout>

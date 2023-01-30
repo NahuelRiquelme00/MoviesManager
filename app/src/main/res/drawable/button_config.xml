@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners
+        android:radius="@dimen/bt_Radio">
+    </corners>
+    <stroke
+        android:color="@color/color_principal"
+        android:width="@dimen/bt_AnchoBorde">
+    </stroke>
+    <gradient
+        android:startColor="@color/color_drawer"
+        android:endColor="@color/color_principal">
+    </gradient>
+
+
+</shape>

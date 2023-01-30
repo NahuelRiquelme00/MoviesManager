@@ -56,4 +56,19 @@
     <string name="tv_RecomsAnioEstreno">A\u00f1o de Estreno: </string>
     <string name="bt_RecomsBuscar">Buscar</string>
     <string name="tv_Orden">Orden: </string>
+    <string name="tv_ConfigCambio">Perfil de Usuario</string>
+    <string name="tv_ConfigIntro">Seleccione el atributo que desea modificar</string>
+    <string name="tv_ConfigUsuario">Nombre</string>
+    <string name="tv_ConfigCorreo">Correo</string>
+    <string name="tv_ConfigFotoPerfil">Foto de perfil</string>
+    <string name="ad_ConfigUsuarioTitulo">Ingrese el nuevo nombre</string>
+    <string name="ad_ConfigUsuario">Usuario</string>
+    <string name="ad_ConfigAceptar">Aceptar</string>
+    <string name="ad_ConfigCancelar">Cancelar</string>
+    <string name="ad_ConfigCorreoTitulo">Ingrese la nueva direcci\u00f3n</string>
+    <string name="ad_ConfigCorreo">Correo</string>
+    <string name="ad_ConfigPermisoGaleriaTitulo">--- Permisos ---</string>
+    <string name="ad_ConfigPermisoGaleriaMensaje">Se necesitan permisos para acceder a la galeria</string>
+    <string name="ad_ConfigConceder">Conceder</string>
+    <string name="ad_ConfigDenegar">Denegar</string>
 </resources>
