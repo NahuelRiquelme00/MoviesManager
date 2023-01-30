@@ -1,13 +1,16 @@
 package com.example.moviesmanager.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -36,6 +39,16 @@ public class PeliculaAdapterInicio extends RecyclerView.Adapter<PeliculaAdapterI
     @Override
     public void onBindViewHolder(@NonNull PeliculaAdapterInicio.ViewHolder holder, int position) {
         Glide.with(context).load(peliculas.get(position).getPosterPath()).error(R.drawable.ic_baseline_no_accounts_24).into(holder.iv_portada);
+        //Evento para ver si se selecciona una de las peliculas
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("id_pelicula",peliculas.get(holder.getAdapterPosition()).getId());
+                Navigation.findNavController(view).navigate(R.id.action_global_nav_detalle,bundle);
+                Toast.makeText(view.getContext(), "Cargando detalles...", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

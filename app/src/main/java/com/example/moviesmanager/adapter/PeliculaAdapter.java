@@ -24,7 +24,6 @@ import java.util.List;
 public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHolder> { 
     private List<Pelicula> peliculas;
     private Context context;
-    private NavController navController;
 
     public PeliculaAdapter(List<Pelicula> peliculas, Context context) {
         this.peliculas = peliculas;
@@ -51,8 +50,7 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
                 bundle.putInt("id_pelicula",peliculas.get(holder.getAdapterPosition()).getId());
-                //bundle.putParcelable("pelicula",peliculas.get(holder.getAdapterPosition()));
-                Navigation.findNavController(view).navigate(R.id.action_nav_busqueda_to_nav_detalle,bundle);
+                Navigation.findNavController(view).navigate(R.id.action_global_nav_detalle,bundle);
                 Toast.makeText(view.getContext(), "Cargando detalles...", Toast.LENGTH_SHORT).show();
             }
         });

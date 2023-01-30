@@ -22,6 +22,7 @@ import com.example.moviesmanager.models.Pelicula;
 import com.example.moviesmanager.network.ConsultarTmdbApi;
 import com.example.moviesmanager.viewmodels.BusquedaViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BusquedaFragment extends Fragment {
@@ -29,6 +30,7 @@ public class BusquedaFragment extends Fragment {
     private FragmentBusquedaBinding binding;
     private Button btn_buscar;
     private EditText edt_titulo;
+    private List<Pelicula> peliculas = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -49,12 +51,20 @@ public class BusquedaFragment extends Fragment {
 
                     ConsultarTmdbApi rg = new ConsultarTmdbApi();
                     try {
-                        List<Pelicula> peliculas = rg.respuesta(edt_titulo.getText().toString());
-                        Toast.makeText(getContext(), "Procesando ...", Toast.LENGTH_SHORT).show();
-                        final Handler handler = new Handler();
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
+                        peliculas = rg.respuesta(edt_titulo.getText().toString());
+                        Toast.makeText(getContext(), "Buscando peliculas...", Toast.LENGTH_SHORT).show();
+                    } catch (Exception ex) {
+                        Toast.makeText(getContext(), "Error: " + ex, Toast.LENGTH_SHORT).show();
+                    }
+
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            if(peliculas.isEmpty()){
+                                Toast.makeText(getContext(), "No se encontraron resultados", Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(getContext(), "Cargando resultados", Toast.LENGTH_SHORT).show();
                                 //Mostrar el resultado de la busqueda
                                 // El resultado son peliculas
                                 PeliculaAdapter peliculaAdapter = new PeliculaAdapter(peliculas, getContext());
@@ -62,20 +72,15 @@ public class BusquedaFragment extends Fragment {
                                 recyclerView.setHasFixedSize(true);
                                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                                 recyclerView.setAdapter(peliculaAdapter);
-
                             }
-                        }, 5000);
-                    } catch (Exception ex) {
-                        Toast.makeText(getContext(), "Error: " + ex, Toast.LENGTH_SHORT).show();
-                    }
+                        }
+                    }, 1500);
+
                 }else{
                     Toast.makeText(getContext(), "Debe ingresar un titulo", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
-        //final TextView textView = binding.textBusqueda;
-        //busquedaViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

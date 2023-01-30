@@ -28,5 +28,9 @@
             android:id="@+id/nav_configuracion"
             android:icon="@drawable/ic_baseline_settings_24"
             android:title="@string/menu_configuracion" />
+        <item
+            android:id="@+id/nav_inicio"
+            android:icon="@drawable/ic_baseline_inicio_24"
+            android:title="Inicio"/>
     </group>
 </menu>

@@ -66,6 +66,8 @@ public class Pelicula {
         return duracion;
     }
 
+    public Integer getDuracionInteger(){return Integer.parseInt(this.duracion);}
+
     public void setDuracion(String duracion) {
         this.duracion = duracion;
     }
@@ -77,4 +79,5 @@ public class Pelicula {
     public void setPosterPath(String posterPath) {
         this.posterPath = posterPath;
     }
+
 }
