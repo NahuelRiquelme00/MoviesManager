@@ -1,12 +1,8 @@
 package com.example.moviesmanager.ui.detalle;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
 import android.os.Handler;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -14,6 +10,10 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
 import com.example.moviesmanager.R;
@@ -37,7 +37,6 @@ public class DetalleFragment extends Fragment {
     private ImageView mPoster;
     private Integer id_pelicula;
     private Pelicula pelicula;
-
     private ImageButton mFavorita;
     private Boolean estadoBotonFav;
     private ImageButton mYaVista;
@@ -45,9 +44,7 @@ public class DetalleFragment extends Fragment {
     private ImageButton mVerMasTarde;
     private Boolean estadoBotonVerMasTarde;
     private ImageButton mResena;
-
     private RatingBar mRatingBar;
-
     private AppDataBase db;
 
 
@@ -216,10 +213,15 @@ public class DetalleFragment extends Fragment {
             }
         });
 
+        //Para el fragmento resena se pasan el nombre de la pelicula y el path al poster de la misma
         mResena.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "Crear reseña ", Toast.LENGTH_SHORT).show();
+                Bundle bundle = new Bundle();
+                bundle.putString("nombre_pelicula", pelicula.getTitulo());
+                bundle.putString("poster_path_pelicula",pelicula.getPosterPath());
+                bundle.putInt("id_pelicula", pelicula.getId());
+                Navigation.findNavController(view).navigate(R.id.action_nav_detalle_to_nav_review, bundle);
             }
         });
 
