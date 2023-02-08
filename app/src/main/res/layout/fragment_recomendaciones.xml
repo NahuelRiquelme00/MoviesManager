@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/black"
-    tools:context=".ui.recomendaciones.RecomendacionesFragment">
+    tools:context=".views.ui.RecomendacionesFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,6 +26,8 @@
         <Spinner
             android:id="@+id/spinnerRecomsGenero"
             android:layout_width="match_parent"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_height="48dp"
             android:layout_gravity="center"
             android:background="@drawable/spinner"
@@ -100,6 +102,7 @@
 
     <Button
         android:id="@+id/buttonRecomsBuscar"
+        android:padding="10dp"
         android:layout_width="@dimen/ancho_boton"
         android:layout_height="wrap_content"
         android:background="@drawable/button_inicio"

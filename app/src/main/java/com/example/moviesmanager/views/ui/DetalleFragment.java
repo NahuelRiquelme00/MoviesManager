@@ -1,12 +1,14 @@
-package com.example.moviesmanager.ui.detalle;
+package com.example.moviesmanager.views.ui;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
-import android.os.Handler;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -17,14 +19,14 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.moviesmanager.R;
-import com.example.moviesmanager.database.AppDataBase;
+import com.example.moviesmanager.database.ConsultarDB;
 import com.example.moviesmanager.databinding.FragmentDetalleBinding;
 import com.example.moviesmanager.models.Favorita;
 import com.example.moviesmanager.models.Pelicula;
 import com.example.moviesmanager.models.Valoracion;
 import com.example.moviesmanager.models.VerMasTarde;
 import com.example.moviesmanager.models.YaVista;
-import com.example.moviesmanager.network.ConsultarTmdbApi;
+import com.example.moviesmanager.viewmodels.DetalleViewModel;
 
 public class DetalleFragment extends Fragment {
 
@@ -36,41 +38,33 @@ public class DetalleFragment extends Fragment {
     private TextView mFechaEstreno;
     private ImageView mPoster;
     private Integer id_pelicula;
-    private Pelicula pelicula;
-
-    private ImageButton mFavorita;
+    public ImageButton mFavorita;
     private Boolean estadoBotonFav;
     private ImageButton mYaVista;
     private Boolean estadoBotonYaVista;
     private ImageButton mVerMasTarde;
     private Boolean estadoBotonVerMasTarde;
     private ImageButton mResena;
-
     private RatingBar mRatingBar;
+    private ConsultarDB db;
 
-    private AppDataBase db;
-
+    private DetalleViewModel detalleViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
+        //ViewModel
+        detalleViewModel = new ViewModelProvider(this,new ViewModelProvider.NewInstanceFactory()).get(DetalleViewModel.class);
+
+        //Binding
         binding = FragmentDetalleBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-        try {
-            db = AppDataBase.getInstance(getContext().getApplicationContext());
-        }catch (Exception ex){
-            Toast.makeText(getContext(), "Error al consultar db " + ex, Toast.LENGTH_SHORT).show();
-        }
-
-        //uso binding para enlazar las variables
         mTitulo = binding.titleTextViewDetalle;
         mFechaEstreno = binding.fechaTextViewDetalle;
         mPoster = binding.posterImageViewDetalle;
         mDirector = binding.directorTextViewDetalle;
         mDuracion = binding.duracionTextViewDetalle;
         mGenero = binding.generoTextViewDetalle;
-        //binding de los botones
         mFavorita = binding.imageButtonFav;
         estadoBotonFav = false;
         mYaVista = binding.imageButtonYaVista;
@@ -79,48 +73,14 @@ public class DetalleFragment extends Fragment {
         estadoBotonVerMasTarde = false;
         mResena = binding.imageButtonResena;
         mRatingBar = binding.ratingBarDetalle;
+        db = ConsultarDB.getInstance(getContext().getApplicationContext());
 
         //Obtengo el id de la pelicula
         id_pelicula = getArguments().getInt("id_pelicula");
+        obtenerDetalles(id_pelicula);
 
-        //Consulto a la api los detalles de la pelicula
-        ConsultarTmdbApi consulta = new ConsultarTmdbApi();
-        try {
-            pelicula = consulta.obtenerDetalles(id_pelicula);
-        }catch (Exception ex){
-            Toast.makeText(getContext(), "Error al consultar detalles " + ex, Toast.LENGTH_SHORT).show();
-        }
-
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                //Cargo los detalles de la pelicula en el layout
-                mTitulo.setText(pelicula.getTitulo());
-                Glide.with(getContext()).load(pelicula.getPosterPath()).into(mPoster);
-                mDirector.setText(pelicula.getDirector());
-                mGenero.setText(pelicula.getGenero());
-                mDuracion.setText(pelicula.getDuracion() + " min");
-                mFechaEstreno.setText(pelicula.getFechaDeEstreno());
-
-                Float valoracion = db.daoValoracion().obtenerValoracion(id_pelicula);
-                if(valoracion!=null){
-                    mRatingBar.setRating(valoracion);
-                }
-                if(db.daoFavorita().existsById(id_pelicula)){
-                    mFavorita.setImageResource(R.drawable.ic_baseline_favorite_24);
-                    estadoBotonFav = true;
-                }
-                if(db.daoYaVista().existsById(id_pelicula)){
-                    mYaVista.setImageResource(R.drawable.ic_baseline_check_circle_24);
-                    estadoBotonYaVista = true;
-                }
-                if(db.daoVerMasTarde().existsById(id_pelicula)){
-                    mVerMasTarde.setImageResource(R.drawable.ic_baseline_watch_later_24);
-                    estadoBotonVerMasTarde = true;
-                }
-            }
-        }, 1000);
+        //Observer
+        ObservarCambios();
 
         mRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
@@ -160,6 +120,7 @@ public class DetalleFragment extends Fragment {
                     }
 
                 }
+                detalleViewModel.obtenerFavoritas(getContext());
             }
         });
 
@@ -186,7 +147,7 @@ public class DetalleFragment extends Fragment {
                     }
 
                 }
-
+                detalleViewModel.obtenerYaVistas(getContext());
             }
         });
 
@@ -212,19 +173,67 @@ public class DetalleFragment extends Fragment {
                         Toast.makeText(getContext(), "Error al eliminar de ver mas tarde " + ex, Toast.LENGTH_SHORT).show();
                     }
                 }
-
+                detalleViewModel.obtenerVerMasTarde(getContext());
             }
         });
 
         mResena.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "Crear reseña ", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "Crear reseña ", Toast.LENGTH_SHORT).show();
+                Bundle bundle = new Bundle();
+                bundle.putInt("id_pelicula",id_pelicula);
+                Navigation.findNavController(view).navigate(R.id.action_nav_detalle_to_reviewFragment, bundle);
             }
         });
 
-
         return root;
+    }
+
+    private void ObservarCambios() {
+        detalleViewModel.getDetalles().observe((LifecycleOwner) getContext(), new Observer<Pelicula>() {
+            @Override
+            public void onChanged(Pelicula pelicula) {
+                //Observar por cambios en la pelicula a ver detalles
+                if(pelicula != null){
+                    //Modifico los datos a mostrar
+                    mTitulo.setText(pelicula.getTitle());
+                    if(getContext()!= null){
+                        Glide.with(getContext()).load(pelicula.getPoster_path()).into(mPoster);
+                    }
+                    mDirector.setText(pelicula.getDirector());
+                    mGenero.setText(pelicula.getGenero());
+                    mDuracion.setText(pelicula.getDuracion() + " min");
+                    mFechaEstreno.setText(pelicula.getRelease_date());
+
+                    Float valoracion = db.daoValoracion().obtenerValoracion(id_pelicula);
+                    if(valoracion!=null){
+                        mRatingBar.setRating(valoracion);
+                    }
+                    if(db.daoFavorita().existsById(id_pelicula)){
+                        mFavorita.setImageResource(R.drawable.ic_baseline_favorite_24);
+                        estadoBotonFav = true;
+                    }
+                    if(db.daoYaVista().existsById(id_pelicula)){
+                        mYaVista.setImageResource(R.drawable.ic_baseline_check_circle_24);
+                        estadoBotonYaVista = true;
+                    }
+                    if(db.daoVerMasTarde().existsById(id_pelicula)){
+                        mVerMasTarde.setImageResource(R.drawable.ic_baseline_watch_later_24);
+                        estadoBotonVerMasTarde = true;
+                    }
+                    if(db.daoReseña().existsById(id_pelicula)){
+                        mResena.setImageResource(R.drawable.ic_baseline_message_outline_24_);
+                    }else{
+                        mResena.setImageResource(R.drawable.ic_baseline_message_24);
+                    }
+                }
+            }
+        });
+    }
+
+    private void obtenerDetalles(Integer id_pelicula) {
+        detalleViewModel.obtenerDetalles(id_pelicula);
     }
 
     @Override

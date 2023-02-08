@@ -13,7 +13,14 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        //javaComplieOptions SECTION
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation":"$projectDir/schemas".toString()]
+            }
+        }
     }
 
     buildTypes {
@@ -28,6 +35,11 @@ android {
     }
     buildFeatures {
         viewBinding true
+    }
+    testOptions{
+        unitTests{
+            includeAndroidResources = true
+        }
     }
 }
 
@@ -52,9 +64,22 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.0.0-rc02'
     implementation 'androidx.navigation:navigation-ui:2.0.0-rc02'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    implementation 'androidx.test.ext:junit:1.1.5'
+
+    implementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation 'androidx.test.espresso:espresso-idling-resource:3.5.1'
+    testImplementation 'org.mockito:mockito-core:5.0.0'
+    testImplementation 'org.robolectric:robolectric:4.9.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test:rules:1.1.0'
+    androidTestImplementation 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.1.0'
+    androidTestImplementation "androidx.test.espresso:espresso-accessibility:3.1.0"
+    androidTestImplementation 'com.21buttons:fragment-test-rule:2.0.1'
+    debugImplementation 'com.21buttons:fragment-test-rule-extras:2.0.1'
+
+    implementation 'org.codejargon.feather:feather:1.0'
 
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     

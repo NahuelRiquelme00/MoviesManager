@@ -7,27 +7,27 @@
 
     <fragment
         android:id="@+id/nav_ya_vistas"
-        android:name="com.example.moviesmanager.ui.ya_vistas.YaVistasFragment"
+        android:name="com.example.moviesmanager.views.ui.YaVistasFragment"
         android:label="@string/menu_ya_vistas"
         tools:layout="@layout/fragment_ya_vistas" />
     <fragment
         android:id="@+id/nav_recomendaciones"
-        android:name="com.example.moviesmanager.ui.recomendaciones.RecomendacionesFragment"
+        android:name="com.example.moviesmanager.views.ui.RecomendacionesFragment"
         android:label="@string/menu_recomendaciones"
         tools:layout="@layout/fragment_recomendaciones" />
     <fragment
         android:id="@+id/nav_ver_mas_tarde"
-        android:name="com.example.moviesmanager.ui.ver_mas_tarde.VerMasTardeFragment"
+        android:name="com.example.moviesmanager.views.ui.VerMasTardeFragment"
         android:label="@string/menu_ver_mas_tarde"
         tools:layout="@layout/fragment_ver_mas_tarde" />
     <fragment
         android:id="@+id/nav_configuracion"
-        android:name="com.example.moviesmanager.ui.configuracion.ConfiguracionFragment"
+        android:name="com.example.moviesmanager.views.ui.ConfiguracionFragment"
         android:label="@string/menu_configuracion"
         tools:layout="@layout/fragment_configuracion" />
     <fragment
         android:id="@+id/nav_inicio"
-        android:name="com.example.moviesmanager.ui.inicio.InicioFragment"
+        android:name="com.example.moviesmanager.views.ui.InicioFragment"
         android:label="@string/app_name"
         tools:layout="@layout/fragment_inicio" >
         <action
@@ -40,27 +40,35 @@
 
     <fragment
         android:id="@+id/nav_busqueda"
-        android:name="com.example.moviesmanager.ui.busqueda.BusquedaFragment"
+        android:name="com.example.moviesmanager.views.ui.BusquedaFragment"
         android:label="@string/menu_busqueda"
         tools:layout="@layout/fragment_busqueda" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.moviesmanager.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
-    <fragment
         android:id="@+id/nav_favoritas"
-        android:name="com.example.moviesmanager.ui.favoritas.FavoritasFragment"
+        android:name="com.example.moviesmanager.views.ui.FavoritasFragment"
         android:label="@string/menu_favoritas"
         tools:layout="@layout/fragment_favoritas" />
     <fragment
         android:id="@+id/nav_detalle"
-        android:name="com.example.moviesmanager.ui.detalle.DetalleFragment"
-        android:label="@string/menu_detalle">
+        android:name="com.example.moviesmanager.views.ui.DetalleFragment"
+        android:label="@string/menu_detalle"
+        tools:layout="@layout/fragment_detalle">
         <argument
             android:name="id_pelicula"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_nav_detalle_to_reviewFragment"
+            app:destination="@id/reviewFragment" />
     </fragment>
     <action android:id="@+id/action_global_nav_detalle" app:destination="@id/nav_detalle" />
+    <fragment
+        android:id="@+id/reviewFragment"
+        android:name="com.example.moviesmanager.views.ui.ReviewFragment"
+        android:label="ReviewFragment"
+        tools:layout="@layout/fragment_review">
+    <argument
+        android:name="id_pelicula"
+        app:argType="integer" />
+    </fragment>
 </navigation>

@@ -3,16 +3,19 @@ package com.example.moviesmanager.viewmodels;
 import android.content.Context;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.moviesmanager.models.Pelicula;
 import com.example.moviesmanager.repositories.PeliculaRepository;
 
-public class DetalleViewModel extends ViewModel {
+public class ReviewViewModel extends ViewModel {
 
     private PeliculaRepository peliculaRepository;
 
-    public DetalleViewModel() {
+    private MutableLiveData<String> review;
+
+    public ReviewViewModel() {
         peliculaRepository = PeliculaRepository.getInstance();
     }
 
@@ -22,17 +25,5 @@ public class DetalleViewModel extends ViewModel {
 
     public void obtenerDetalles(Integer id_pelicula) {
         peliculaRepository.obtenerDetalles(id_pelicula);
-    }
-
-    public void obtenerFavoritas(Context context) {
-        peliculaRepository.obtenerFavoritas(context);
-    }
-
-    public void obtenerYaVistas(Context context) {
-        peliculaRepository.obtenerYaVistas(context);
-    }
-
-    public void obtenerVerMasTarde(Context context) {
-        peliculaRepository.obtenerVerMasTarde(context);
     }
 }

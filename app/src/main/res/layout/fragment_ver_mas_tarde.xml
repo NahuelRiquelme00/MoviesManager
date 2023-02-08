@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/black"
-    tools:context=".ui.ver_mas_tarde.VerMasTardeFragment">
+    tools:context=".views.ui.VerMasTardeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,6 +26,8 @@
 
         <Spinner
             android:id="@+id/spinnerVerMasTardeOrden"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_width="match_parent"
             android:layout_height="@dimen/altura_general_textos_spinner"
             android:layout_gravity="center"

@@ -1,19 +1,26 @@
 package com.example.moviesmanager.viewmodels;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
+import com.example.moviesmanager.models.Pelicula;
+import com.example.moviesmanager.repositories.PeliculaRepository;
+
+import java.util.List;
 
 public class RecomendacionesViewModel extends ViewModel {
 
-    private final MutableLiveData<String> mText;
+    private PeliculaRepository peliculaRepository;
 
     public RecomendacionesViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is recomendaciones fragment");
+        peliculaRepository = PeliculaRepository.getInstance();
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public LiveData<List<Pelicula>> getPeliculasRecomendadas() {
+        return peliculaRepository.getPeliculasRecomendadas();
+    }
+
+    public void buscarPeliculasRecomendadasTMDB(Integer year, Integer valoracion, String id_genero) {
+        peliculaRepository.buscarPeliculasRecomendadasTMDB(year,valoracion,id_genero);
     }
 }
