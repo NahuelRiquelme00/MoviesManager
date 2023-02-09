@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,12 +16,18 @@ import com.bumptech.glide.Glide;
 import com.example.moviesmanager.R;
 import com.example.moviesmanager.models.Pelicula;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PeliculaAdapterInicio extends RecyclerView.Adapter<PeliculaAdapterInicio.ViewHolder> {
 
     private List<Pelicula> peliculas;
     private Context context;
+
+    public PeliculaAdapterInicio(Context context) {
+        this.peliculas = new ArrayList<>();
+        this.context = context;
+    }
 
     public PeliculaAdapterInicio(List<Pelicula> peliculas, Context context) {
         this.peliculas = peliculas;
@@ -38,8 +43,7 @@ public class PeliculaAdapterInicio extends RecyclerView.Adapter<PeliculaAdapterI
 
     @Override
     public void onBindViewHolder(@NonNull PeliculaAdapterInicio.ViewHolder holder, int position) {
-        Glide.with(context).load(peliculas.get(position).getPosterPath()).error(R.drawable.ic_baseline_no_accounts_24).into(holder.iv_portada);
-        //Evento para ver si se selecciona una de las peliculas
+        Glide.with(context).load(peliculas.get(position).getPoster_path()).error(R.drawable.ic_baseline_no_accounts_24).into(holder.iv_portada);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,7 +57,10 @@ public class PeliculaAdapterInicio extends RecyclerView.Adapter<PeliculaAdapterI
 
     @Override
     public int getItemCount() {
-        return peliculas.size();
+        if(peliculas != null){
+            return peliculas.size();
+        }
+        return 0;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

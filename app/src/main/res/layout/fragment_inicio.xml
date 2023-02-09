@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/black"
     android:orientation="vertical"
-    tools:context=".ui.inicio.InicioFragment">
+    tools:context=".views.ui.InicioFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -51,6 +51,7 @@
 
         <Button
             android:id="@+id/buttonInicioYaVistas"
+            android:padding="10dp"
             android:layout_width="@dimen/ancho_boton"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -62,6 +63,7 @@
 
         <Button
             android:id="@+id/buttonInicioRecomendaciones"
+            android:padding="10dp"
             android:layout_width="@dimen/ancho_boton"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

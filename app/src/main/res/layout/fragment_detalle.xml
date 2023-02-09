@@ -166,7 +166,7 @@
             android:isIndicator="false"
             android:numStars="5"
             android:progressBackgroundTint="@color/color_año"
-            android:progressTint="@color/white"
+            android:progressTint="@color/color_principal"
             android:rating="0"
             app:layout_constraintBottom_toTopOf="@+id/imageButtonResena"
             app:layout_constraintEnd_toEndOf="parent"

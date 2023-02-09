@@ -14,16 +14,18 @@ import com.example.moviesmanager.models.VerMasTarde;
 import com.example.moviesmanager.models.YaVista;
 
 @Database(
+
         entities = {Favorita.class, VerMasTarde.class, YaVista.class, Review.class, Valoracion.class, Usuario.class},
-        version = 7
+        version = 5,
+        exportSchema = true
 )
-public abstract class AppDataBase extends RoomDatabase {
+public abstract class ConsultarDB extends RoomDatabase {
 
-    public static AppDataBase INSTANCE;
+    public static ConsultarDB INSTANCE;
 
-    public static AppDataBase getInstance(Context context){
+    public static ConsultarDB getInstance(Context context){
         if (INSTANCE == null){
-            INSTANCE = Room.databaseBuilder(context, AppDataBase.class, "MoviesManagerDB")
+            INSTANCE = Room.databaseBuilder(context, ConsultarDB.class, "MoviesManagerDB")
                     .allowMainThreadQueries()
                     .fallbackToDestructiveMigration()
                     .build();

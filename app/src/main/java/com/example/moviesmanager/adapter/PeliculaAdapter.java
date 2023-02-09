@@ -3,7 +3,6 @@ package com.example.moviesmanager.adapter;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,13 +18,20 @@ import com.bumptech.glide.Glide;
 import com.example.moviesmanager.R;
 import com.example.moviesmanager.models.Pelicula;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHolder> { 
+public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHolder> {
+
     private List<Pelicula> peliculas;
     private Context context;
 
-    public PeliculaAdapter(List<Pelicula> peliculas, Context context) {
+    public PeliculaAdapter(Context context) {
+        this.peliculas = new ArrayList<>();
+        this.context = context;
+    }
+
+    public PeliculaAdapter(List<Pelicula> peliculas , Context context) {
         this.peliculas = peliculas;
         this.context = context;
     }
@@ -40,9 +46,10 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //Se cargan los datos en el holder
-        holder.tv_titulo.setText(peliculas.get(position).getTitulo());
-        holder.tv_anio.setText(peliculas.get(position).getFechaDeEstreno());
-        Glide.with(context).load(peliculas.get(position).getPosterPath()).error(R.drawable.ic_baseline_no_accounts_24).into(holder.iv_portada);
+        holder.tv_titulo.setText(peliculas.get(position).getTitle());
+        holder.tv_anio.setText(peliculas.get(position).getRelease_date());
+        Glide.with(context).load(peliculas.get(position).getPoster_path())
+                .error(R.drawable.ic_baseline_no_accounts_24).into(holder.iv_portada);
 
         //Evento para ver si se selecciona una de las peliculas
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +65,10 @@ public class PeliculaAdapter extends RecyclerView.Adapter<PeliculaAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return peliculas.size();
+        if(peliculas != null){
+            return peliculas.size();
+        }
+        return 0;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

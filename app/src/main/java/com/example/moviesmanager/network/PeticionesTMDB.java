@@ -7,7 +7,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
-public interface PeticionesApiPeliculas {
+public interface PeticionesTMDB {
     //Ejemplo de URL
     //https://api.themoviedb.org/3/search/movie?api_key=db4d382cec1aeb8010fb784d2ef9fd30&query=Dune
 

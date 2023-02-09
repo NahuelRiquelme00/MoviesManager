@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/black"
-    tools:context=".ui.favoritas.FavoritasFragment" >
+    tools:context=".views.ui.FavoritasFragment" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,6 +27,8 @@
         <Spinner
             android:id="@+id/spinnerFavsOrden"
             android:layout_width="match_parent"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_height="48dp"
             android:layout_gravity="center"
             android:background="@drawable/spinner"

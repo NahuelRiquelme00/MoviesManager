@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/black"
-    tools:context=".ui.configuracion.ConfiguracionFragment" >
+    tools:context=".views.ui.ConfiguracionFragment" >
 
     <TextView
         android:id="@+id/textViewConfigTitulo"

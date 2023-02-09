@@ -1,19 +1,28 @@
 package com.example.moviesmanager.viewmodels;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
+import com.example.moviesmanager.models.Pelicula;
+import com.example.moviesmanager.repositories.PeliculaRepository;
+
+import java.util.List;
 
 public class BusquedaViewModel extends ViewModel {
 
-    private final MutableLiveData<String> mText;
+    private PeliculaRepository peliculaRepository;
+
 
     public BusquedaViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is busqueda fragment");
+        peliculaRepository = PeliculaRepository.getInstance();
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public LiveData<List<Pelicula>> getPeliculas() {
+        return peliculaRepository.getPeliculas();
+    }
+
+    //3 - se llama al metodo desde el viewmodel
+    public void buscarPeliculaTMDB(String consulta){
+        peliculaRepository.buscarPeliculaTMDB(consulta);
     }
 }

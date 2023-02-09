@@ -1,18 +1,15 @@
 package com.example.moviesmanager.models;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 public class Pelicula {
 
     private Integer id;
-    private String titulo;
+    private String title;
     private String descripcion;
     private String director;
-    private String fechaDeEstreno;
+    private String release_date;
     private String genero;
     private String duracion;
-    private String posterPath;
+    private String poster_path;
 
     public Integer getId() {
         return id;
@@ -22,12 +19,12 @@ public class Pelicula {
         this.id = id;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescripcion() {
@@ -46,12 +43,12 @@ public class Pelicula {
         this.director = director;
     }
 
-    public String getFechaDeEstreno() {
-        return fechaDeEstreno;
+    public String getRelease_date() {
+        return release_date;
     }
 
-    public void setFechaDeEstreno(String fechaDeEstreno) {
-        this.fechaDeEstreno = fechaDeEstreno;
+    public void setRelease_date(String release_date) {
+        this.release_date = release_date;
     }
 
     public String getGenero() {
@@ -66,18 +63,23 @@ public class Pelicula {
         return duracion;
     }
 
-    public Integer getDuracionInteger(){return Integer.parseInt(this.duracion);}
+    public Integer getDuracionInteger(){
+        if(this.duracion != null){
+            return Integer.parseInt(this.duracion);
+        }
+        return null;
+    }
 
     public void setDuracion(String duracion) {
         this.duracion = duracion;
     }
 
-    public String getPosterPath() {
-        return posterPath;
+    public String getPoster_path() {
+        return poster_path;
     }
 
-    public void setPosterPath(String posterPath) {
-        this.posterPath = posterPath;
+    public void setPoster_path(String poster_path) {
+        this.poster_path = poster_path;
     }
 
 }

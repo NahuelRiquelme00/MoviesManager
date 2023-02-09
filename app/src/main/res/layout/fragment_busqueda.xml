@@ -38,6 +38,7 @@
 
     <Button
         android:id="@+id/button_search"
+        android:padding="10dp"
         android:layout_width="131dp"
         android:layout_height="49dp"
         android:layout_marginStart="158dp"

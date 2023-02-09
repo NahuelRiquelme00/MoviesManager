@@ -1,79 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragmentReview"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textViewReviewNombre"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Nombre pelicula"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_height="match_parent"
+        android:nestedScrollingEnabled="true">
 
-    <ImageView
-        android:id="@+id/imageViewReviewPoster"
-        android:layout_width="150dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"/>
+        <ImageView
+            android:id="@+id/posterImageViewReview"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginStart="130dp"
+            android:layout_marginTop="29dp"
+            android:layout_marginEnd="131dp"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleTextReview"
+            app:srcCompat="@drawable/ic_menu_gallery"></ImageView>
 
-    <TextView
-        android:id="@+id/textViewReviewComentarios"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:inputType="textPersonName"
-        android:text="Opiniones y Comentarios" />
-
-    <EditText
-        android:id="@+id/editTextReviewReview"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_margin="10dp"
-        android:gravity="start|top"
-        android:padding="10dp"
-        android:maxLength="310"
-        android:hint="Ingresar review"
-        android:background="@drawable/edit_text_background"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/buttonReviewCancelar"
+        <TextView
+            android:id="@+id/titleTextReview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginStart="88dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="88dp"
+            android:layout_marginBottom="25dp"
+            android:gravity="center"
             android:textColor="@color/white"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:backgroundTint="@color/black"
-            android:text="Cancelar" />
+            app:layout_constraintBottom_toTopOf="@+id/posterImageViewReview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Nombre pelicula"></TextView>
 
-        <Button
-            android:id="@+id/buttonReviewGuardar"
+        <TextView
+            android:id="@+id/comentariosReview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginStart="88dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="88dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:text="Opiniones y comentarios"
             android:textColor="@color/white"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:backgroundTint="@color/black"
-            android:text="Guardar" />
-    </LinearLayout>
+            app:layout_constraintBottom_toTopOf="@+id/multiAutoCompleteTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/posterImageViewReview"></TextView>
+
+        <Button
+            android:id="@+id/buttonGuardar"
+            android:layout_width="182dp"
+            android:layout_height="58dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/borde_redondos"
+            android:backgroundTint="@color/color_principal"
+            android:drawableLeft="@drawable/ic_baseline_message_24"
+            android:padding="15dp"
+            android:text="Guardar"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/multiAutoCompleteTextView">
+
+        </Button>
+
+        <MultiAutoCompleteTextView
+            android:id="@+id/multiAutoCompleteTextView"
+            android:layout_width="356dp"
+            android:layout_height="179dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/bordes_editext"
+            android:gravity="start"
+            android:padding="10dp"
+            android:minHeight="48dp"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/black"
+            android:textDirection="firstStrong"
+            android:textStyle="italic"
+            android:verticalScrollbarPosition="defaultPosition"
+            app:layout_constraintBottom_toTopOf="@+id/buttonGuardar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/comentariosReview"
+            tools:text="Texto de prueba" />
 
 
-</LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+

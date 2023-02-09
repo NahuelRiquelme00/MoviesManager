@@ -3,6 +3,7 @@ package com.example.moviesmanager.database;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import com.example.moviesmanager.models.Review;
@@ -13,7 +14,7 @@ public interface DaoReview {
     @Query("SELECT review FROM review WHERE idPelicula = :id")
     String obtenerReview(Integer id);
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertarReview(Review review);
 
     @Delete
