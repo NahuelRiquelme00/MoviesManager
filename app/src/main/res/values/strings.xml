@@ -2,8 +2,8 @@
     <string name="app_name">Movies Manager</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title_user">Usuario</string>
-    <string name="nav_header_subtitle_email">Correo</string>
+    <string name="nav_header_title_user">Nahuel Riquelme</string>
+    <string name="nav_header_subtitle_email">Nahuelriquelme00@gmail.com</string>
     <string name="nav_header_desc">Navigation header</string>
 
     <string name="menu_busqueda">Busqueda</string>
@@ -14,7 +14,6 @@
     <string name="menu_configuracion">Configuración</string>
     <string name="menu_detalle">Detalle</string>
     <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_review">Review</string>
 
     <string-array name="orden">
         <item>" "</item>

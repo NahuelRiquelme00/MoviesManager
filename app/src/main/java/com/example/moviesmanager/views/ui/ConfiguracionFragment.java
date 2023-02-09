@@ -1,4 +1,10 @@
-package com.example.moviesmanager.ui.configuracion;
+package com.example.moviesmanager.views.ui;
+
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.app.Activity;
@@ -6,11 +12,12 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.MediaStore;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,39 +26,27 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-
 import com.example.moviesmanager.R;
-import com.example.moviesmanager.database.AppDataBase;
-import com.example.moviesmanager.database.DataConverter;
 import com.example.moviesmanager.databinding.FragmentConfiguracionBinding;
-import com.google.android.material.navigation.NavigationView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ConfiguracionFragment extends Fragment {
 
+    //Binding
     private FragmentConfiguracionBinding binding;
+
+    //Usuario
     private TextView textViewUsuario;
     private String nuevoUsuario;
+
+    //Correo
     private TextView textViewCorreo;
     private String nuevoCorreo;
+
+    //Foto de perfil
     private CircleImageView circleImageViewFotoPerfil;
     private Uri imageUri;
-    private AppDataBase db;
-    NavigationView navigationView;
-    private View headerView;
-    private TextView nombreUsuario;
-    private TextView correoUsuario;
-    private CircleImageView fotoPerfilUsuario;
-    private byte[] foto;
-    private Bitmap bitmapFoto;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -59,35 +54,10 @@ public class ConfiguracionFragment extends Fragment {
         //        new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(ConfiguracionViewModel.class);
 
         binding = FragmentConfiguracionBinding.inflate(inflater, container, false);
-        textViewUsuario = binding.textViewConfigUsuario;
-        textViewCorreo = binding.textViewConfigCorreo;
-        circleImageViewFotoPerfil = binding.circleImageViewConfigFotoPerfil;
         View root = binding.getRoot();
 
-        //Para actualizar el header
-        navigationView = (NavigationView) getActivity().findViewById(R.id.nav_view);
-        headerView = navigationView.getHeaderView(0);
-
-        //Base de datos
-        try {
-            db = AppDataBase.getInstance(getContext().getApplicationContext());
-        }catch (Exception ex){
-            Toast.makeText(getContext(), "Error al consultar db " + ex, Toast.LENGTH_SHORT).show();
-        }
-
-        if(!db.daoUsuario().usuarioNoCargado(1)){
-            textViewUsuario.setText(db.daoUsuario().obtenerUsuario(1));
-        }
-        if(!db.daoUsuario().correoNoCargado(1)){
-            textViewCorreo.setText(db.daoUsuario().obtenerCorreo(1));
-        }
-        if(!db.daoUsuario().fotoNoCargada(1)){
-            foto = db.daoUsuario().obtenerFotoPerfilPath(1);
-            DataConverter dataConverter = new DataConverter();
-            circleImageViewFotoPerfil.setImageBitmap(dataConverter.convertByteArrayToBitmap(foto));
-        }
-
         //Usuario
+        textViewUsuario = binding.textViewConfigUsuario;
         textViewUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -102,7 +72,6 @@ public class ConfiguracionFragment extends Fragment {
                 alertaUsuario.setView(viewUsuario);
                 AlertDialog dialogUsuario = alertaUsuario.create();
                 dialogUsuario.show();
-                nombreUsuario = headerView.findViewById(R.id.textViewNavHeaderUsuario);
                 btCancelar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -112,25 +81,24 @@ public class ConfiguracionFragment extends Fragment {
                 btAceptar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        nuevoUsuario = etUsuario.getText().toString();
-                        if(nuevoUsuario.equals("")){
+                        if(etUsuario.getText().toString().equals("")){
+                            // --- MODIFICAR PARA QUE SE MUESTRE EL USUARIO ACTUAL Y SE LO PUEDA MODIFICAR ---
                             Toast.makeText(getContext(), "Ingrese un nombre", Toast.LENGTH_SHORT).show();
                         }
                         else{
+                            nuevoUsuario = etUsuario.getText().toString();
                             textViewUsuario.setText(etUsuario.getText());
-                            try {
-                                db.daoUsuario().actualizarNombre(1, nuevoUsuario);
-                            } catch (Exception e){
-                                Toast.makeText(getContext(), "Error al actualizar usuario: "+e, Toast.LENGTH_SHORT).show();
-                            }
-                            nombreUsuario.setText(nuevoUsuario);
+                            dialogUsuario.dismiss();
+                            Toast.makeText(getContext(), "Nuevo nombre: "+nuevoUsuario, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
             }
         });
 
+
         //Correo
+        textViewCorreo = binding.textViewConfigCorreo;
         textViewCorreo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -145,7 +113,6 @@ public class ConfiguracionFragment extends Fragment {
                 alertaCorreo.setView(viewCorreo);
                 AlertDialog dialogCorreo = alertaCorreo.create();
                 dialogCorreo.show();
-                correoUsuario = headerView.findViewById(R.id.textViewNavHeaderCorreo);
                 btCancelar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -155,18 +122,15 @@ public class ConfiguracionFragment extends Fragment {
                 btAceptar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        nuevoCorreo = etCorreo.getText().toString();
-                        if(nuevoCorreo.equals("")){
+                        if(etCorreo.getText().toString().equals("")){
+                            // --- MODIFICAR PARA QUE SE MUESTRE EL CORREO ACTUAL Y SE LO PUEDA MODIFICAR, Y HACER UNA VALIDACION DEL MISMO ---
                             Toast.makeText(getContext(), "Ingrese una direcci\u00f3n de correo", Toast.LENGTH_SHORT).show();
                         }
                         else{
                             textViewCorreo.setText(etCorreo.getText());
-                            try {
-                                db.daoUsuario().actualizarCorreo(1, nuevoCorreo);
-                            } catch (Exception e){
-                                Toast.makeText(getContext(), "Error al actualizar correo: "+e, Toast.LENGTH_SHORT).show();
-                            }
-                            correoUsuario.setText(nuevoCorreo);
+                            nuevoCorreo = etCorreo.getText().toString();
+                            dialogCorreo.dismiss();
+                            Toast.makeText(getContext(), "Nuevo correo: "+nuevoCorreo, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -174,6 +138,7 @@ public class ConfiguracionFragment extends Fragment {
         });
 
         //Foto de Perfil
+        circleImageViewFotoPerfil = binding.circleImageViewConfigFotoPerfil;
         circleImageViewFotoPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -214,6 +179,7 @@ public class ConfiguracionFragment extends Fragment {
                 @Override
                 public void onActivityResult(Boolean result) {
                     if(result){
+                        //Toast.makeText(getContext(), "Permiso concedido", Toast.LENGTH_SHORT).show();
                         cargarImagen();
                     } else{
                         Toast.makeText(getContext(), "Permiso no concedido", Toast.LENGTH_SHORT).show();
@@ -238,16 +204,7 @@ public class ConfiguracionFragment extends Fragment {
                         try {
                             if (result.getData() != null){
                                 imageUri = result.getData().getData();
-                                bitmapFoto = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), imageUri);
-                                circleImageViewFotoPerfil.setImageBitmap(bitmapFoto);
-                                DataConverter dataConverter = new DataConverter();
-                                try{
-                                    db.daoUsuario().actualizarFoto(1,dataConverter.convertImageToByteArray(bitmapFoto));
-                                } catch (Exception e){
-                                    Toast.makeText(getContext(), "Error al guardar la foto: "+e, Toast.LENGTH_SHORT).show();
-                                }
-                                fotoPerfilUsuario = headerView.findViewById(R.id.circleImageViewNavHeader);
-                                fotoPerfilUsuario.setImageBitmap(bitmapFoto);
+                                circleImageViewFotoPerfil.setImageURI(imageUri);
                             }
                         }catch (Exception exception){
                             exception.printStackTrace();
@@ -262,5 +219,4 @@ public class ConfiguracionFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
 }

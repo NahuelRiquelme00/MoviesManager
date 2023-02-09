@@ -6,25 +6,24 @@
     android:background="@color/color_drawer"
     android:gravity="bottom"
     android:orientation="vertical"
-    android:padding = "16dp"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circleImageViewNavHeader"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
+    <ImageView
+        android:id="@+id/imageViewNavHeader"
+        android:layout_width="83dp"
+        android:layout_height="85dp"
         android:contentDescription="@string/nav_header_desc"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        app:srcCompat="@drawable/ic_baseline_account_circle_24"
-        app:civ_border_color="@color/white"
-        app:civ_border_width="5dp"/>
+        app:srcCompat="@drawable/ic_baseline_account_circle_24" />
 
     <TextView
         android:id="@+id/textViewNavHeaderUsuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="@string/nav_header_title_user"
         android:textColor="@color/black"
@@ -32,9 +31,8 @@
 
     <TextView
         android:id="@+id/textViewNavHeaderCorreo"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:textColor="@color/black"
         android:text="@string/nav_header_subtitle_email" />
 </LinearLayout>

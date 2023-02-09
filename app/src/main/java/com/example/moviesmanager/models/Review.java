@@ -13,9 +13,8 @@ public class Review {
 
     private String review;
 
-    public Review(@NonNull Integer idPelicula, String review) {
+    public Review(@NonNull Integer idPelicula) {
         this.idPelicula = idPelicula;
-        this.review = review;
     }
 
     @NonNull
