@@ -1,4 +1,4 @@
-package com.example.moviesmanager.network.utils;
+package com.example.moviesmanager.utils;
 
 import android.app.Notification;
 import android.app.NotificationManager;

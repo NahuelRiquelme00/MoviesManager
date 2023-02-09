@@ -1,4 +1,4 @@
-package com.example.moviesmanager.network.utils;
+package com.example.moviesmanager.utils;
 
 public class Credenciales {
 

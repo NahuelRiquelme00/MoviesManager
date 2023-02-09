@@ -11,7 +11,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Menu;
 
-import com.example.moviesmanager.network.utils.AlarmNotification;
+import com.example.moviesmanager.utils.AlarmNotification;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.navigation.NavController;

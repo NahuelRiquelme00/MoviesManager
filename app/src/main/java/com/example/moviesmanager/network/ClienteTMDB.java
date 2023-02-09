@@ -6,8 +6,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.moviesmanager.models.Pelicula;
-import com.example.moviesmanager.network.utils.AppExecutors;
-import com.example.moviesmanager.network.utils.Credenciales;
+import com.example.moviesmanager.utils.AppExecutors;
+import com.example.moviesmanager.utils.Credenciales;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;

@@ -1,4 +1,4 @@
-package com.example.moviesmanager.network.utils;
+package com.example.moviesmanager.utils;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
