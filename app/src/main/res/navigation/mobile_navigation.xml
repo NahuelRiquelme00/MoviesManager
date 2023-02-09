@@ -61,6 +61,25 @@
         <argument
             android:name="id_pelicula"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_nav_detalle_to_nav_review"
+            app:destination="@id/nav_review">
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/nav_review"
+        android:name="com.example.moviesmanager.ui.review.ReviewFragment"
+        android:label="Review"
+        tools:layout="@layout/fragment_review">
+        <argument
+            android:name="nombre_pelicula"
+            app:argType="string" />
+        <argument
+            android:name="poster_path_pelicula"
+            app:argType="string" />
+        <argument
+            android:name="id_pelicula"
+            app:argType="integer" />
     </fragment>
     <action android:id="@+id/action_global_nav_detalle" app:destination="@id/nav_detalle" />
 </navigation>

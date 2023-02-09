@@ -50,6 +50,7 @@ public class InicioFragment extends Fragment {
         mYaVistas = binding.buttonInicioYaVistas;
         mRecomendaciones = binding.buttonInicioRecomendaciones;
 
+        //Peliculas favoritas y ver mas tarde
         try {
             AppDataBase db = AppDataBase.getInstance(getContext().getApplicationContext());
             listaFavoritas = db.daoFavorita().obtenerPeliculas();

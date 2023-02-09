@@ -8,13 +8,14 @@ import androidx.room.RoomDatabase;
 
 import com.example.moviesmanager.models.Favorita;
 import com.example.moviesmanager.models.Review;
+import com.example.moviesmanager.models.Usuario;
 import com.example.moviesmanager.models.Valoracion;
 import com.example.moviesmanager.models.VerMasTarde;
 import com.example.moviesmanager.models.YaVista;
 
 @Database(
-        entities = {Favorita.class, VerMasTarde.class, YaVista.class, Review.class, Valoracion.class},
-        version = 4
+        entities = {Favorita.class, VerMasTarde.class, YaVista.class, Review.class, Valoracion.class, Usuario.class},
+        version = 7
 )
 public abstract class AppDataBase extends RoomDatabase {
 
@@ -39,5 +40,7 @@ public abstract class AppDataBase extends RoomDatabase {
     public abstract DaoReview daoReseña();
 
     public abstract DaoValoracion daoValoracion();
+
+    public abstract DaoUsuario daoUsuario();
 
 }
