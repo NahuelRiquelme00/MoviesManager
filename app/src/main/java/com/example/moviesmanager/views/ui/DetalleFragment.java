@@ -7,7 +7,6 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +15,10 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
 import com.example.moviesmanager.R;
@@ -49,6 +52,7 @@ public class DetalleFragment extends Fragment {
     private ConsultarDB db;
 
     private DetalleViewModel detalleViewModel;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -177,6 +181,7 @@ public class DetalleFragment extends Fragment {
             }
         });
 
+        //Para el fragmento resena se pasan el nombre de la pelicula y el path al poster de la misma
         mResena.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -184,6 +189,7 @@ public class DetalleFragment extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putInt("id_pelicula",id_pelicula);
                 Navigation.findNavController(view).navigate(R.id.action_nav_detalle_to_reviewFragment, bundle);
+
             }
         });
 
