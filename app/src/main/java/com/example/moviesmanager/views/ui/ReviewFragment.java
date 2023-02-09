@@ -1,5 +1,7 @@
 package com.example.moviesmanager.views.ui;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +41,7 @@ public class ReviewFragment extends Fragment {
     private ImageView mPoster;
     private EditText mReview;
     private Button mGuardar;
+    private Button mCancelar;
     private Integer id_pelicula;
     private ConsultarDB db;
 
@@ -53,10 +56,12 @@ public class ReviewFragment extends Fragment {
         //Binding
         binding = FragmentReviewBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        mTitulo = binding.titleTextReview;
-        mPoster = binding.posterImageViewReview;
-        mReview = binding.multiAutoCompleteTextView;
-        mGuardar = binding.buttonGuardar;
+        mTitulo = binding.textViewReviewNombre;
+        mPoster = binding.imageViewReviewPoster;
+        mReview = binding.editTextReviewReview;
+        mGuardar = binding.buttonReviewGuardar;
+        mCancelar = binding.buttonReviewCancelar;
+
         db = ConsultarDB.getInstance(getContext().getApplicationContext());
 
         //Obtengo el id de la pelicula y obtengo los detalles
@@ -76,11 +81,35 @@ public class ReviewFragment extends Fragment {
                         review.setReview(mReview.getText().toString());
                         db.daoReseña().insertarReview(review);
                         Toast.makeText(getContext(), "Review guardada ", Toast.LENGTH_SHORT).show();
+                        getActivity().onBackPressed();
                     }catch (Exception ex){
                         Toast.makeText(getContext(), "Error al guardar review " + ex, Toast.LENGTH_SHORT).show();
                     }
                 }
 
+            }
+        });
+
+        mCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle("Cancelar")
+                        .setMessage("Esta seguro que desea cancelar?")
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        })
+                        .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                getActivity().onBackPressed();
+                            }
+                        });
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
 

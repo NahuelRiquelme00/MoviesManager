@@ -1,4 +1,4 @@
-package com.example.moviesmanager.ui.configuracion;
+package com.example.moviesmanager.views.ui;
 
 import android.Manifest;
 import android.app.Activity;
@@ -28,7 +28,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.moviesmanager.R;
-import com.example.moviesmanager.database.AppDataBase;
+import com.example.moviesmanager.database.ConsultarDB;
 import com.example.moviesmanager.database.DataConverter;
 import com.example.moviesmanager.databinding.FragmentConfiguracionBinding;
 import com.google.android.material.navigation.NavigationView;
@@ -44,7 +44,7 @@ public class ConfiguracionFragment extends Fragment {
     private String nuevoCorreo;
     private CircleImageView circleImageViewFotoPerfil;
     private Uri imageUri;
-    private AppDataBase db;
+    private ConsultarDB db;
     NavigationView navigationView;
     private View headerView;
     private TextView nombreUsuario;
@@ -55,6 +55,7 @@ public class ConfiguracionFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
         //ConfiguracionViewModel configuracionViewModel =
         //        new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(ConfiguracionViewModel.class);
 
@@ -70,7 +71,7 @@ public class ConfiguracionFragment extends Fragment {
 
         //Base de datos
         try {
-            db = AppDataBase.getInstance(getContext().getApplicationContext());
+            db = ConsultarDB.getInstance(getContext().getApplicationContext());
         }catch (Exception ex){
             Toast.makeText(getContext(), "Error al consultar db " + ex, Toast.LENGTH_SHORT).show();
         }

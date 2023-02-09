@@ -5,6 +5,7 @@ plugins {
 android {
     namespace 'com.example.moviesmanager'
     compileSdk 32
+    buildToolsVersion "21.0.0"
 
     defaultConfig {
         applicationId "com.example.moviesmanager"

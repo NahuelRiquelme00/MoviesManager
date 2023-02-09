@@ -1,6 +1,6 @@
 package com.example.moviesmanager.network;
 
-import com.example.moviesmanager.network.utils.Credenciales;
+import com.example.moviesmanager.utils.Credenciales;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

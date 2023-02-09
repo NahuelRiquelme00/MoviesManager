@@ -8,7 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.moviesmanager.models.Favorita;
 import com.example.moviesmanager.models.VerMasTarde;
 import com.example.moviesmanager.models.YaVista;
-import com.example.moviesmanager.network.utils.AppExecutors;
+import com.example.moviesmanager.utils.AppExecutors;
 
 import java.util.List;
 import java.util.concurrent.Future;

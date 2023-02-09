@@ -8,6 +8,15 @@
     android:background="@color/black"
     tools:context=".views.ui.ConfiguracionFragment" >
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
     <TextView
         android:id="@+id/textViewConfigTitulo"
         android:layout_width="match_parent"
@@ -69,5 +78,8 @@
             android:text="@string/ad_ConfigCorreo" />
 
     </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
