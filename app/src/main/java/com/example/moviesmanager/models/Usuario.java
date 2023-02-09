@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey;
 public class Usuario {
 
     //Atributos
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     @NonNull
     private Integer idUsuario;
 
@@ -17,8 +17,8 @@ public class Usuario {
     private String nombre;
     @ColumnInfo(name = "CORREO")
     private String correo;
-    @ColumnInfo(name = "FOTO")
-    private String fotoPerfilPath;
+    @ColumnInfo(name = "FOTO", typeAffinity = ColumnInfo.BLOB)
+    private byte [] fotoPerfilPath;
 
     //Constructor
     public Usuario(@NonNull Integer idUsuario){
@@ -51,11 +51,11 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public String getFotoPerfilPath() {
+    public byte[] getFotoPerfilPath() {
         return fotoPerfilPath;
     }
 
-    public void setFotoPerfilPath(String fotoPerfilPath) {
+    public void setFotoPerfilPath(byte[] fotoPerfilPath) {
         this.fotoPerfilPath = fotoPerfilPath;
     }
 }
