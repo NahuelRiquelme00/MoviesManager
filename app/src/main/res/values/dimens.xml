@@ -1,17 +1,68 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="nav_header_vertical_spacing">8dp</dimen>
-    <dimen name="nav_header_height">176dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="header_ImageViewWidthHeigh">100dp</dimen>
+    <dimen name="header_layoutMarginTop">60dp</dimen>
+    <dimen name="header_separacionImagen">6dp</dimen>
+    <dimen name="header_separacionTextos">3dp</dimen>
+    <dimen name="header_correoMarginBottom">15dp</dimen>
+    <dimen name="header_circleBorderWidth">2.5dp</dimen>
+    <dimen name="header_layoutSeparadorHeight">1dp</dimen>
+
+    <dimen name="inicio_separacionBotones">10dp</dimen>
+    <dimen name="inicio_margin">10dp</dimen>
+
+    <dimen name="busqueda_buttonMarginBottom">10dp</dimen>
+
+    <dimen name="configuracion_layourSeparadorHeight">0.5dp</dimen>
+    <dimen name="configuracion_imageMarginBottom">20dp</dimen>
+    <dimen name="configuracion_usuarioMarginTop">10dp</dimen>
+    <dimen name="configuracion_usuarioMarginBottom">15dp</dimen>
+    <dimen name="configuracion_textViewSize">18dp</dimen>
+
+    <dimen name="detalle_buttonHeight">61dp</dimen>
+    <dimen name="detalle_buttonWidth">72dp</dimen>
+    <dimen name="detalle_separacionBotones">25dp</dimen>
+    <dimen name="detalle_ratingBarWidth">240dp</dimen>
+    <dimen name="detalle_separacionWidgets">10dp</dimen>
+    <dimen name="detalle_titulosSize">24dp</dimen>
+
+    <dimen name="review_titulosSize">24dp</dimen>
+    <dimen name="review_editTextHeight">200dp</dimen>
+    <dimen name="review_editTextPadding">10dp</dimen>
+    <dimen name="review_editTextMargin">10dp</dimen>
+    <dimen name="review_separacionWidgets">10dp</dimen>
+
+    <dimen name="marginWidgets_FavoritasVerMasTardeYaVistas">10dp</dimen>
+    <dimen name="marginLayoutTopBottom_FavoritasVerMasTardeYaVistas">10dp</dimen>
+
+    <dimen name="recomendaciones_marginWidgets">10dp</dimen>
+    <dimen name="recomendaciones_marginLayout">10dp</dimen>
+
+    <dimen name="drawable_buttonRadio">50dp</dimen>
+    <dimen name="drawable_buttonWidth">5dp</dimen>
+
+    <dimen name="alertDialog_margin">10dp</dimen>
+    <dimen name="alertDialog_layoutSeparadorHeight">5dp</dimen>
+
+    <dimen name="listPeliculas_cardCornerRadius">20dp</dimen>
+    <dimen name="listPeliculas_cardElevation">10dp</dimen>
+    <dimen name="listPeliculas_relativeLayoutPadding">6dp</dimen>
+    <dimen name="listPeliculas_imagePadding">14dp</dimen>
+    <dimen name="listPeliculas_linearLayoutMarginLeftStart">4dp</dimen>
+    <dimen name="listPeliculas_linearLayoutMarginTop">2dp</dimen>
+    <dimen name="listPeliculas_nombrePeliculaMarginBottom">2dp</dimen>
+    <dimen name="listPeliculas_nombrePeliculaSize">24sp</dimen>
+    <dimen name="listPeliculas_fechaSize">18sp</dimen>
+
+    <dimen name="textView_startMargin">5dp</dimen>
     <dimen name="titulos_size">20dp</dimen>
-    <dimen name="altura_general_textos_spinner">40dp</dimen>
-    <dimen name="ancho_boton">200dp</dimen>
-    <dimen name="separacion_varios_layouts">60dp</dimen>
-    <dimen name="separacion_un_layout">70dp</dimen>
-    <dimen name="separacion_botones">10dp</dimen>
-    <dimen name="bt_Radio">50dp</dimen>
-    <dimen name="bt_AnchoBorde">5dp</dimen>
+    <dimen name="buttonPadding">10dp</dimen>
+    <dimen name="buttonWidth">200dp</dimen>
+    <dimen name="recyclerView_margin">10dp</dimen>
+    <dimen name="poster_height">200dp</dimen>
+    <dimen name="poster_width">150dp</dimen>
+    <dimen name="poster_padding">14dp</dimen>
+    <dimen name="spinnerHeight">40dp</dimen>
     <dimen name="tamFotoPerfil">200dp</dimen>
+
 </resources>

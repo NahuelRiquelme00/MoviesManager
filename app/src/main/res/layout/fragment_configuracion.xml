@@ -1,85 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:fillViewport="true"
     android:background="@color/black"
-    tools:context=".views.ui.ConfiguracionFragment" >
+    android:orientation="vertical"
+    tools:context=".views.ui.ConfiguracionFragment">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewConfigTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/tv_ConfigCambio"
+            android:textColor="@color/white"
+            android:textSize="@dimen/titulos_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewConfigIntro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/tv_ConfigIntro"
+            android:textColor="@color/white" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/configuracion_layourSeparadorHeight"
+            android:background="@color/white"
+            android:orientation="horizontal"></LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
             android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textViewConfigTitulo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="@dimen/titulos_size"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:text="@string/tv_ConfigCambio" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circleImageViewConfigFotoPerfil"
+                android:layout_width="@dimen/tamFotoPerfil"
+                android:layout_height="@dimen/tamFotoPerfil"
+                android:layout_marginBottom="@dimen/configuracion_imageMarginBottom"
+                android:src="@drawable/ic_launcher_foreground"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="5dp">
+            </de.hdodenhof.circleimageview.CircleImageView>
 
-    <TextView
-        android:id="@+id/textViewConfigIntro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:text="@string/tv_ConfigIntro" />
+            <TextView
+                android:id="@+id/textViewConfigUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/ad_ConfigUsuario"
+                android:textSize="@dimen/configuracion_textViewSize"
+                android:layout_marginTop="@dimen/configuracion_usuarioMarginTop"
+                android:layout_marginBottom="@dimen/configuracion_usuarioMarginBottom"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/white"
-        android:orientation="vertical"></LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/circleImageViewConfigFotoPerfil"
-            android:layout_height="@dimen/tamFotoPerfil"
-            android:layout_width="@dimen/tamFotoPerfil"
-            android:layout_marginBottom="20dp"
-            android:src="@drawable/ic_launcher_foreground"
-            app:civ_border_color="@color/white"
-            app:civ_border_width="5dp">
-        </de.hdodenhof.circleimageview.CircleImageView>
-
-        <TextView
-            android:id="@+id/textViewConfigUsuario"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/altura_general_textos_spinner"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:text="@string/ad_ConfigUsuario" />
-
-        <TextView
-            android:id="@+id/textViewConfigCorreo"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/altura_general_textos_spinner"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:text="@string/ad_ConfigCorreo" />
-
+            <TextView
+                android:id="@+id/textViewConfigCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/ad_ConfigCorreo"
+                android:textSize="@dimen/configuracion_textViewSize"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
 
-        </LinearLayout>
-    </ScrollView>
-
-</LinearLayout>
+</ScrollView>

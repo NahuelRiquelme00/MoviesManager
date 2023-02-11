@@ -11,11 +11,9 @@ import android.os.Build.VERSION;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationCompat.Builder;
-import androidx.navigation.NavDeepLinkBuilder;
 
 import com.example.moviesmanager.R;
 import com.example.moviesmanager.views.ui.MainActivity;
-import com.example.moviesmanager.views.ui.VerMasTardeFragment;
 
 
 public final class AlarmNotification extends BroadcastReceiver {
@@ -36,11 +34,10 @@ public final class AlarmNotification extends BroadcastReceiver {
 
         Notification notification = new Builder(context, MainActivity.MY_CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_aplicacion__movie_24)
-                .setContentTitle("Mirate algunas de estas pelis")
-                //.setContentText("Entra a la app para ver algunas de tus pelis favoritas y las que guardaste para ver mas tarde")
+                .setContentTitle("Siempre hay tiempo para una película")
                 .setStyle(
                         new NotificationCompat.BigTextStyle().bigText(
-                                "Entra a la app para ver que peliculas guardaste para ver mas tarde o tus favoritas (Si queres volver a verlas)"
+                                "No dejes abandonadas a las películas que guardaste para ver más tarde, entra a la app a recordarlas"
                         )
                 )
                 .setContentIntent(pendingIntent)
