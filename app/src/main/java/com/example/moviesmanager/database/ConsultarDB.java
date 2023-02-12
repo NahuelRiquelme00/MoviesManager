@@ -16,7 +16,7 @@ import com.example.moviesmanager.models.YaVista;
 @Database(
 
         entities = {Favorita.class, VerMasTarde.class, YaVista.class, Review.class, Valoracion.class, Usuario.class},
-        version = 5,
+        version = 8,
         exportSchema = true
 )
 public abstract class ConsultarDB extends RoomDatabase {

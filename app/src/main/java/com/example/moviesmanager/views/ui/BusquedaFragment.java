@@ -22,7 +22,6 @@ import com.example.moviesmanager.databinding.FragmentBusquedaBinding;
 import com.example.moviesmanager.models.Pelicula;
 import com.example.moviesmanager.viewmodels.BusquedaViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class BusquedaFragment extends Fragment {
@@ -35,6 +34,8 @@ public class BusquedaFragment extends Fragment {
     private String consulta;
 
     private BusquedaViewModel busquedaViewModel;
+
+    private Boolean busquedaRealizada = false;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -60,6 +61,7 @@ public class BusquedaFragment extends Fragment {
                         Toast.makeText(getContext(), "Ingrese el nombre de la pelicula ", Toast.LENGTH_SHORT).show();
                     }else{
                         buscarPeliculaTMDB(consulta);
+                        busquedaRealizada = true;
                     }
                 }
             }
@@ -90,7 +92,7 @@ public class BusquedaFragment extends Fragment {
 
     private void configurarReclyclerView(){
         peliculaAdapter = new PeliculaAdapter(getContext());
-        recyclerView.setAdapter(peliculaAdapter);
+        if(!busquedaRealizada) recyclerView.setAdapter(peliculaAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
