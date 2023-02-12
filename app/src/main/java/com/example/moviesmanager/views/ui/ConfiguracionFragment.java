@@ -125,6 +125,7 @@ public class ConfiguracionFragment extends Fragment {
                                 Toast.makeText(getContext(), "Error al actualizar usuario: "+e, Toast.LENGTH_SHORT).show();
                             }
                             nombreUsuario.setText(nuevoUsuario);
+                            dialogUsuario.dismiss();
                         }
                     }
                 });
@@ -168,6 +169,7 @@ public class ConfiguracionFragment extends Fragment {
                                 Toast.makeText(getContext(), "Error al actualizar correo: "+e, Toast.LENGTH_SHORT).show();
                             }
                             correoUsuario.setText(nuevoCorreo);
+                            dialogCorreo.dismiss();
                         }
                     }
                 });

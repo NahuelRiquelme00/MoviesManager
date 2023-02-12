@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -29,19 +30,17 @@ import java.util.List;
 public class InicioFragment extends Fragment {
 
     private FragmentInicioBinding binding;
-
     private RecyclerView recyclerViewInicioFavoritas;
     private PeliculaAdapterInicio peliculaAdapterInicioFavoritas;
     private LinearLayoutManager layoutManagerInicioFavoritas;
-
     private RecyclerView recyclerViewInicioVerMasTarde;
     private PeliculaAdapterInicio peliculaAdapterInicioVerMasTarde;
     private LinearLayoutManager layoutManagerInicioVerMasTarde;
-
     private Button mYaVistas;
     private Button mRecomendaciones;
-
     private InicioViewModel inicioViewModel;
+    private LinearLayout layoutFavoritas;
+    private LinearLayout layoutVerMasTarde;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -56,6 +55,8 @@ public class InicioFragment extends Fragment {
         mRecomendaciones = binding.buttonInicioRecomendaciones;
         recyclerViewInicioVerMasTarde = binding.recyclerViewInicioVerMasTarde;
         recyclerViewInicioFavoritas = binding.recyclerViewInicioFavoritas;
+        layoutFavoritas = binding.inicioLayoutFavoritas;
+        layoutVerMasTarde = binding.inicioLayoutVerMasTarde;
 
         //Obtener favoritas y ver mas tarde
         inicioViewModel.obtenerFavoritas(getContext());
@@ -105,7 +106,7 @@ public class InicioFragment extends Fragment {
             @Override
             public void onChanged(List<Pelicula> peliculas) {
                 if(peliculas != null){
-                   recyclerViewInicioFavoritas.setAdapter(new PeliculaAdapterInicio(peliculas, getContext()));
+                    recyclerViewInicioFavoritas.setAdapter(new PeliculaAdapterInicio(peliculas, getContext()));
                 }
             }
         });
@@ -133,10 +134,20 @@ public class InicioFragment extends Fragment {
     }
 
     private void obtenerPeliculasFavoritas(List<Integer> idsPeliculas) {
+        if(idsPeliculas.isEmpty()){
+            layoutFavoritas.setVisibility(View.VISIBLE);
+        } else {
+            layoutFavoritas.setVisibility(View.GONE);
+        }
         inicioViewModel.obtenerPeliculasFavoritas(idsPeliculas);
     }
 
     private void obtenerPeliculasVerMasTarde(List<Integer> idsPeliculas){
+        if(idsPeliculas.isEmpty()){
+            layoutVerMasTarde.setVisibility(View.VISIBLE);
+        } else {
+            layoutVerMasTarde.setVisibility(View.GONE);
+        }
         inicioViewModel.obtenerPeliculasVerMasTarde(idsPeliculas);
     }
 

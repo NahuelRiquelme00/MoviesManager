@@ -9,11 +9,18 @@
     android:orientation="vertical"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_layoutSeparadorHeight"
+        android:background="@color/black"
+        android:orientation="horizontal"></LinearLayout>
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/circleImageViewNavHeader"
         android:layout_width="@dimen/header_ImageViewWidthHeigh"
         android:layout_height="@dimen/header_ImageViewWidthHeigh"
         android:layout_gravity="center"
+        android:layout_marginTop="@dimen/header_correoMarginBottom"
         android:layout_marginBottom="@dimen/header_separacionImagen"
         android:contentDescription="@string/nav_header_desc"
         android:src="@drawable/ic_launcher_foreground"

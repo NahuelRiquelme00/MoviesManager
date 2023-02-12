@@ -24,6 +24,15 @@
             android:textSize="@dimen/titulos_size"
             android:textStyle="bold" />
 
+        <LinearLayout
+            android:id="@+id/inicioLayoutFavoritas"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/poster_height"
+            android:background="@color/color_principal"
+            android:visibility="visible"
+            android:orientation="horizontal">
+        </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewInicioFavoritas"
             android:layout_width="match_parent"
@@ -40,6 +49,15 @@
             android:textColor="@color/white"
             android:textSize="@dimen/titulos_size"
             android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/inicioLayoutVerMasTarde"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/poster_height"
+            android:background="@color/color_principal"
+            android:visibility="visible"
+            android:orientation="horizontal">
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewInicioVerMasTarde"

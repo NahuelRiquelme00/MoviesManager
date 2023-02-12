@@ -13,13 +13,13 @@
         android:gravity="center"
         android:textSize="@dimen/titulos_size"
         android:textStyle="bold"
-        android:textColor="@color/color_principal"
+        android:textColor="@color/white"
         android:text="@string/ad_ConfigCorreoTitulo" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/alertDialog_layoutSeparadorHeight"
-        android:background="@color/color_principal"
+        android:layout_height="@dimen/alertDialog_bordeWidth"
+        android:background="@color/white"
         android:orientation="vertical"></LinearLayout>
 
     <EditText
@@ -27,8 +27,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/alertDialog_margin"
-        android:textColor="@color/color_principal"
-        android:backgroundTint="@color/color_principal"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/color_drawer"
         android:ems="10"
         android:inputType="textEmailAddress"
         android:textAlignment="center"/>

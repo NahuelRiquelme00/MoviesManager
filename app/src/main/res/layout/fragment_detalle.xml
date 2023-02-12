@@ -60,6 +60,7 @@
                 android:layout_height="wrap_content"
                 android:textAlignment="viewStart"
                 android:textColor="@color/white"
+                android:layout_marginStart="@dimen/textView_startMargin"
                 android:textSize="@dimen/detalle_titulosSize"
                 tools:text="Duración"></TextView>
         </LinearLayout>
@@ -84,6 +85,7 @@
                 android:id="@+id/generoTextViewDetalle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/textView_startMargin"
                 android:textAlignment="viewStart"
                 android:textColor="@color/white"
                 android:textSize="@dimen/detalle_titulosSize"
@@ -110,6 +112,7 @@
                 android:id="@+id/duracionTextViewDetalle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/textView_startMargin"
                 android:textAlignment="viewStart"
                 android:textColor="@color/white"
                 android:textSize="@dimen/detalle_titulosSize"
@@ -136,6 +139,7 @@
                 android:id="@+id/fechaTextViewDetalle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/textView_startMargin"
                 android:textAlignment="viewStart"
                 android:textColor="@color/white"
                 android:textSize="@dimen/detalle_titulosSize"

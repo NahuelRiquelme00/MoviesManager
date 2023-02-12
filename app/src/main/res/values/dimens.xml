@@ -42,7 +42,7 @@
     <dimen name="drawable_buttonWidth">5dp</dimen>
 
     <dimen name="alertDialog_margin">10dp</dimen>
-    <dimen name="alertDialog_layoutSeparadorHeight">5dp</dimen>
+    <dimen name="alertDialog_bordeWidth">1dp</dimen>
 
     <dimen name="listPeliculas_cardCornerRadius">20dp</dimen>
     <dimen name="listPeliculas_cardElevation">10dp</dimen>
