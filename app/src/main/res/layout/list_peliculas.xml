@@ -7,8 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:animateLayoutChanges="true"
-    app:cardCornerRadius="20dp"
-    app:cardElevation="10dp"
+    app:cardCornerRadius="@dimen/listPeliculas_cardCornerRadius"
+    app:cardElevation="@dimen/listPeliculas_cardElevation"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
@@ -16,42 +16,43 @@
         android:layout_height="wrap_content"
         android:animateLayoutChanges="true"
         android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="6dp">
+            android:padding="@dimen/listPeliculas_relativeLayoutPadding">
 
             <ImageView
                 android:id="@+id/posterImageView"
-                android:layout_width="150dp"
-                android:layout_height="200dp"
+                android:layout_width="@dimen/poster_width"
+                android:layout_height="@dimen/poster_height"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
-                android:paddingLeft="14dp"
-                android:paddingRight="14dp"
+                android:paddingLeft="@dimen/listPeliculas_imagePadding"
+                android:paddingRight="@dimen/listPeliculas_imagePadding"
                 app:srcCompat="@drawable/ic_menu_gallery">
             </ImageView>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="2dp"
+                android:layout_marginStart="@dimen/listPeliculas_linearLayoutMarginLeftStart"
+                android:layout_marginTop="@dimen/listPeliculas_linearLayoutMarginTop"
+                android:layout_marginLeft="@dimen/listPeliculas_linearLayoutMarginLeftStart"
                 android:layout_toEndOf="@+id/posterImageView"
                 android:orientation="vertical"
-                android:layout_marginLeft="4dp"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/posterImageView">
                 <TextView
                     android:id="@+id/titleTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="2dp"
-                    android:text="Nombre de la pelicula"
+                    android:layout_marginBottom="@dimen/listPeliculas_nombrePeliculaMarginBottom"
+                    android:text="@string/tv_ListPeliculasNombrePelicula"
                     android:textColor="@color/white"
-                    android:textSize="24sp"
+                    android:textSize="@dimen/listPeliculas_nombrePeliculaSize"
                     android:textStyle="bold"
                     android:gravity="center">
                 </TextView>
@@ -59,10 +60,10 @@
                     android:id="@+id/anioTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Año"
+                    android:text="@string/tv_ListPeliculasAnio"
                     android:textColor="@color/color_año"
                     android:gravity="center"
-                    android:textSize="18sp">
+                    android:textSize="@dimen/listPeliculas_fechaSize">
                 </TextView>
             </LinearLayout>
 

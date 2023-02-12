@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <corners
-        android:radius="@dimen/bt_Radio">
+        android:radius="@dimen/drawable_buttonRadio">
     </corners>
     <stroke
         android:color="@color/white"
-        android:width="@dimen/bt_AnchoBorde">
+        android:width="@dimen/drawable_buttonWidth">
     </stroke>
     <gradient
         android:startColor="@color/color_drawer"

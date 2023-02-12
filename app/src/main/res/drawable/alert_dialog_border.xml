@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <stroke android:width="@dimen/alertDialog_bordeWidth" android:color="@color/white"></stroke>
+    <gradient
+        android:endColor="@color/black"
+        android:startColor="@color/color_drawer"
+        android:angle="90"></gradient>
+    <corners android:radius="10dp"></corners>
+</shape>
