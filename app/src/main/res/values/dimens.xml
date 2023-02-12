@@ -8,7 +8,7 @@
     <dimen name="header_circleBorderWidth">2.5dp</dimen>
     <dimen name="header_layoutSeparadorHeight">1dp</dimen>
 
-    <dimen name="inicio_separacionBotones">10dp</dimen>
+    <dimen name="inicio_separacionBotones">20dp</dimen>
     <dimen name="inicio_margin">10dp</dimen>
 
     <dimen name="busqueda_buttonMarginBottom">10dp</dimen>

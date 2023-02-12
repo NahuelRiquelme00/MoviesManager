@@ -89,8 +89,9 @@
     <string name="ad_ConfigCancelar">Cancelar</string>
     <string name="ad_ConfigCorreoTitulo">Ingrese la nueva dirección</string>
     <string name="ad_ConfigCorreo">Correo</string>
-    <string name="ad_ConfigPermisoGaleriaTitulo">--- Permisos ---</string>
-    <string name="ad_ConfigPermisoGaleriaMensaje">Se necesitan permisos para acceder a la galería</string>
-    <string name="ad_ConfigConceder">Conceder</string>
-    <string name="ad_ConfigDenegar">Ignorar</string>
+
+    <string name="ad_ConfigPermisosTitulo">Se necesitan permisos</string>
+    <string name="ad_ConfigPermisosAdvertencia">Advertencia: si éstos no se conceden, no podrá acceder a la galería</string>
+    <string name="ad_ConfigPermisosConceder">Conceder</string>
+    <string name="ad_ConfigPermisosIgnorar">Ignorar</string>
 </resources>
