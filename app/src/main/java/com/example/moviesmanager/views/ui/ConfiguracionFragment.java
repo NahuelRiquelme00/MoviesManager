@@ -3,7 +3,6 @@ package com.example.moviesmanager.views.ui;
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -185,22 +184,27 @@ public class ConfiguracionFragment extends Fragment {
                     if(ContextCompat.checkSelfPermission(getActivity(),
                             Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
                         AlertDialog.Builder alertaPermisoStorage = new AlertDialog.Builder(getContext());
-                        alertaPermisoStorage.setTitle(R.string.ad_ConfigPermisoGaleriaTitulo)
-                                .setMessage(R.string.ad_ConfigPermisoGaleriaMensaje)
-                                .setNegativeButton(R.string.ad_ConfigDenegar, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        dialogInterface.cancel();
-                                    }
-                                })
-                                .setPositiveButton(R.string.ad_ConfigConceder, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        permissionLauncherSingle.launch(Manifest.permission.READ_EXTERNAL_STORAGE);
-                                    }
-                                });
+                        //Layout del AlertDialog
+                        LayoutInflater inflater3 = getActivity().getLayoutInflater();
+                        View viewPermisos = inflater3.inflate(R.layout.alert_dialog_config_permisos, null);
+                        final Button btIgnorar = (Button) viewPermisos.findViewById(R.id.buttonADPermisosIgnorar);
+                        final Button btConceder = (Button) viewPermisos.findViewById(R.id.buttonADPermisosConceder);
+                        alertaPermisoStorage.setView(viewPermisos);
                         AlertDialog dialogPermisoStorage = alertaPermisoStorage.create();
                         dialogPermisoStorage.show();
+                        btIgnorar.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                dialogPermisoStorage.cancel();
+                            }
+                        });
+                        btConceder.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                dialogPermisoStorage.dismiss();
+                                permissionLauncherSingle.launch(Manifest.permission.READ_EXTERNAL_STORAGE);
+                            }
+                        });
                     }
                     else{
                         cargarImagen();
