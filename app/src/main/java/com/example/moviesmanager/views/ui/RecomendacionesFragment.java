@@ -43,6 +43,8 @@ public class RecomendacionesFragment extends Fragment {
     private RecyclerView recyclerView;
     private PeliculaAdapter peliculaAdapter;
 
+    private Boolean recomendacionRealizada = false;
+
     private RecomendacionesViewModel recomendacionesViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -71,19 +73,20 @@ public class RecomendacionesFragment extends Fragment {
 
                 if(!TextUtils.isEmpty(mYear.getText())){
                     year = Integer.parseInt(mYear.getText().toString());
-                }
+                }else year = null;
 
                 if(!spinnerGeneros.getSelectedItem().toString().isEmpty()){
                     String genero = spinnerGeneros.getSelectedItem().toString();
                     id_genero = String.valueOf(Genre.getIdFromGenre(genero));
-                }
+                }else id_genero = null;
 
                 if(mValoracion.getProgress()!=0){
                     valoracion = mValoracion.getProgress();
-                }
+                }else valoracion = null;
 
                 Toast.makeText(getContext(), "Cargando recomendaciones ", Toast.LENGTH_SHORT).show();
                 buscarPeliculasRecomendadasTMDB(year,valoracion,id_genero);
+                recomendacionRealizada = true;
             }
         });
 
@@ -111,7 +114,7 @@ public class RecomendacionesFragment extends Fragment {
 
     private void configurarRecyclerView(){
         peliculaAdapter = new PeliculaAdapter(getContext());
-        recyclerView.setAdapter(peliculaAdapter);
+        if(!recomendacionRealizada) recyclerView.setAdapter(peliculaAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
