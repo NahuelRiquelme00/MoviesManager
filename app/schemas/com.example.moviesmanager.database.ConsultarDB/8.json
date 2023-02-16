@@ -1,0 +1,163 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 8,
+    "identityHash": "77a24d29164768bd30514d8cbea88372",
+    "entities": [
+      {
+        "tableName": "Favorita",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idPelicula` INTEGER NOT NULL, PRIMARY KEY(`idPelicula`))",
+        "fields": [
+          {
+            "fieldPath": "idPelicula",
+            "columnName": "idPelicula",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idPelicula"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "VerMasTarde",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idPelicula` INTEGER NOT NULL, PRIMARY KEY(`idPelicula`))",
+        "fields": [
+          {
+            "fieldPath": "idPelicula",
+            "columnName": "idPelicula",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idPelicula"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "YaVista",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idPelicula` INTEGER NOT NULL, PRIMARY KEY(`idPelicula`))",
+        "fields": [
+          {
+            "fieldPath": "idPelicula",
+            "columnName": "idPelicula",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idPelicula"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Review",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idPelicula` INTEGER NOT NULL, `review` TEXT, PRIMARY KEY(`idPelicula`))",
+        "fields": [
+          {
+            "fieldPath": "idPelicula",
+            "columnName": "idPelicula",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "review",
+            "columnName": "review",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idPelicula"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Valoracion",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idPelicula` INTEGER NOT NULL, `valoracion` REAL, PRIMARY KEY(`idPelicula`))",
+        "fields": [
+          {
+            "fieldPath": "idPelicula",
+            "columnName": "idPelicula",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "valoracion",
+            "columnName": "valoracion",
+            "affinity": "REAL",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idPelicula"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Usuario",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idUsuario` INTEGER NOT NULL, `NOMBRE` TEXT, `CORREO` TEXT, `FOTO` BLOB, PRIMARY KEY(`idUsuario`))",
+        "fields": [
+          {
+            "fieldPath": "idUsuario",
+            "columnName": "idUsuario",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "NOMBRE",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "correo",
+            "columnName": "CORREO",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "fotoPerfilPath",
+            "columnName": "FOTO",
+            "affinity": "BLOB",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idUsuario"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"77a24d29164768bd30514d8cbea88372\")"
+    ]
+  }
+}

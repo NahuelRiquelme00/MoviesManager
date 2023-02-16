@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/alert_dialog_border"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textViewADReviewCancelarTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/alertDialog_margin"
+        android:gravity="center"
+        android:textSize="@dimen/titulos_size"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="@string/tv_ReviewADCancelarTitulo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/alertDialog_bordeWidth"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewADReviewCancelarMensaje"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/alertDialog_margin"
+        android:gravity="center"
+        android:textSize="@dimen/titulos_size"
+        android:textColor="@color/white"
+        android:layout_margin="@dimen/alertDialog_margin"
+        android:text="@string/tv_ReviewADCancelarMensaje" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonADReviewCancelarNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/alertDialog_margin"
+            android:textColor="@color/white"
+            android:background="@drawable/button_inicio"
+            android:layout_weight="1"
+            android:text="@string/bt_ReviewADNo" />
+
+        <Button
+            android:id="@+id/buttonADReviewCancelarSi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/alertDialog_margin"
+            android:textColor="@color/white"
+            android:background="@drawable/button_inicio"
+            android:layout_weight="1"
+            android:text="@string/bt_ReviewADSi" />
+    </LinearLayout>
+
+</LinearLayout>

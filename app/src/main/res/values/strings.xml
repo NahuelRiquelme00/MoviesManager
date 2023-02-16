@@ -54,6 +54,13 @@
     <string name="tvHint_ReviewIngresarReview">Ingresar review</string>
     <string name="bt_ReviewCancelar">Cancelar</string>
     <string name="bt_ReviewGuardar">Guardar</string>
+    <string name="bt_ReviewLimpiar">Limpiar</string>
+    <string name="bt_ReviewADNo">No</string>
+    <string name="bt_ReviewADSi">Si</string>
+    <string name="tv_ReviewADCancelarTitulo">Cancelar</string>
+    <string name="tv_ReviewADCancelarMensaje">Se perderán los cambios no guardados, ¿está seguro de que desea cancelar?</string>
+    <string name="tv_ReviewADLimpiarTitulo">Limpiar</string>
+    <string name="tv_ReviewADLimpiarMensaje">La review actual se borrará, ¿está seguro de que desea continuar?</string>
 
     <string name="tv_ListPeliculasNombrePelicula">Nombre de la película</string>
     <string name="tv_ListPeliculasAnio">Año</string>

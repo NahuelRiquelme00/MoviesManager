@@ -16,7 +16,6 @@ import java.util.List;
 public class PeliculaRepository {
 
     private static PeliculaRepository instance;
-
     private final ClienteTMDB clienteTMDB;
     private final ClienteDB clienteDB;
 
@@ -81,7 +80,6 @@ public class PeliculaRepository {
     }
 
 
-
     //2 - Se llama al metodo desde el repositorio
     public void buscarPeliculaTMDB(String consulta){
         clienteTMDB.buscarPeliculasTMBD(consulta);
@@ -94,7 +92,6 @@ public class PeliculaRepository {
     public void obtenerDetalles(Integer id_pelicula) {
         clienteTMDB.obtenerDetalles(id_pelicula);
     }
-
 
     public void obtenerFavoritas(Context context) { clienteDB.obtenerFavoritas(context);
     }

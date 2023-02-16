@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="@color/black">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,15 +55,27 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/review_marginLayoutBotones"
+            android:layout_marginRight="@dimen/review_marginLayoutBotones">
 
             <Button
                 android:id="@+id/buttonReviewCancelar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="@color/color_principal"
                 android:text="@string/bt_ReviewCancelar"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/buttonReviewLimpiar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/color_principal"
+                android:text="@string/bt_ReviewLimpiar"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 
@@ -71,7 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="@color/color_principal"
                 android:text="@string/bt_ReviewGuardar"
                 android:textColor="@color/white"
                 android:textStyle="bold" />

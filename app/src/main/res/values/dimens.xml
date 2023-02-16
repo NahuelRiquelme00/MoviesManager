@@ -31,6 +31,7 @@
     <dimen name="review_editTextPadding">10dp</dimen>
     <dimen name="review_editTextMargin">10dp</dimen>
     <dimen name="review_separacionWidgets">10dp</dimen>
+    <dimen name="review_marginLayoutBotones">10dp</dimen>
 
     <dimen name="marginWidgets_FavoritasVerMasTardeYaVistas">10dp</dimen>
     <dimen name="marginLayoutTopBottom_FavoritasVerMasTardeYaVistas">10dp</dimen>
